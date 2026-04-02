@@ -1,0 +1,69 @@
+body{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d8e2dc;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.logoimg{
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 500px;
+  margin-left: 750px;
+}
+#kablogo{
+  position: absolute;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 500px;
+  margin-left: 960px;
+}
+#intro{
+  font-size: 20px;
+}
+#un{
+    font-size: 23px;
+}
+#pw{
+    font-size: 23px;
+}
+.loginbox{
+    width: 700px;
+    height: 40vh;
+    background:#eaf4ef;
+    padding: 50px;
+    margin: 20px;
+    margin-top: 292px;
+    margin-left: 340px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+}
+#submit{
+  background: #166534;
+  font-size: 23px;
+  border-radius: 12px;
+}
+#submit:hover{
+  background: #22c55e;
+}
+.logimg{
+  position: absolute;
+  height: 40vh;
+  width: 40vh;
+  top: 300px;
+  left: 425px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+  background-color: black;
+}
+#return{
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+#return:hover{
+  color: #22c55e;
+}

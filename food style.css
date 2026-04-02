@@ -7,20 +7,21 @@
 body {
     font-family: Arial, sans-serif;
 }
+
 .container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: #d8e2dc; 
-    background-image: url('2024-11-19.jpg');
+    background-image: url('coffee crop.png');
     background-position: right;
-    background-size: 80% 100%;
+    background-size: 80% 40%;
+    background-position: 390px 0px; 
     background-repeat: no-repeat;
     image-rendering: -webkit-optimize-contrast;
     display: flex;
     align-items: center;
     position: relative;
 }
-
 nav {
     position: absolute;
     top: 0;
@@ -60,7 +61,9 @@ nav ul li a {
 nav ul li a:hover {
     color: #22c55e; 
 }
-
+#foodbtn a{
+    color: #22c55e;
+}
 .btn {
     background: #166534;
     color: white;
@@ -70,13 +73,6 @@ nav ul li a:hover {
 .btn:hover {
     background: #22c55e; 
     color: white;
-}
-
-.hero-text {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    color: black;
 }
 
 .hero-text h1 {
@@ -89,17 +85,18 @@ nav ul li a:hover {
 
 
 .highlight-overlay {
-    position: absolute;
+    position: relative;
     left: 35%; 
     width: 50%; 
     display: grid;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr 1fr;    
     gap: 40px; 
+    margin-top: 100px;
 }
 
-.card {
-    background: rgba(0, 0, 0, 0.15); 
+.card{
+    background: rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);         
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -108,13 +105,12 @@ nav ul li a:hover {
     color: white; 
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    height: 400px;
 }
-
 .card:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.25);
 }
-
 .card h3 {
     margin-bottom: 10px;
     font-size: 20px;
