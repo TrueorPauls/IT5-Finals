@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #d8e2dc; 
+    background-image: url('coffee crop.png');
+    background-position: right;
+    background-size: 80% 40%;
+    background-position: 390px 0px; 
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+.logo img {
+    height: 50px;
+    width: 50px;
+    
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+nav ul li a:hover {
+    color: #22c55e; 
+}
+#coffeebtn a{
+    color: #22c55e;
+}
+.btn {
+    background: #166534;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+.btn:hover {
+    background: #22c55e; 
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+}
+
+.hero-text p {
+    margin-top: 10px;
+}
+
+
+.highlight-overlay {
+    position: relative;
+    left: 35%; 
+    width: 50%; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;    
+    gap: 40px; 
+    margin-top: 100px;
+}
+
+.card{
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);         
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    color: white; 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    height: 400px;
+}
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.9;
+}
