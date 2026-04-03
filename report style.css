@@ -1,0 +1,82 @@
+body{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d8e2dc;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.logoimg{
+  position: absolute;
+  margin-top: 82px;
+  margin-bottom: 700px;
+  margin-left: 700px;
+}
+#kablogo{
+  position: absolute;
+  font-size: 40px;
+  margin-top: 102px;
+  margin-bottom: 700px;
+  margin-left: 910px;
+}
+#intro{
+  font-size: 20px;
+}
+#n, #em, #issuecateg, #desc{
+    font-size: 23px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    font-size: 23px;
+    width: 420px;
+    height: 33px;
+    padding: 8px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+textarea {
+    width: 80%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.loginbox{
+    width: 900px;
+    height: 65vh;
+    background:#eaf4ef;
+    padding: 50px;
+    padding-top: 0px;
+    margin: 20px;
+    margin-top: 230px;
+    margin-left: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+}
+#report{
+  background: #166534;
+  font-size: 23px;
+  border-radius: 12px;
+}
+#report:hover{
+  background: #22c55e;
+}
+#return{
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+#return:hover{
+  color: #22c55e;
+}
