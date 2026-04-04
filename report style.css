@@ -5,7 +5,7 @@ body{
     align-items: center;
 
     background-color: #d8e2dc;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .logoimg{
   position: absolute;
@@ -21,7 +21,9 @@ body{
   margin-left: 910px;
 }
 #intro{
-  font-size: 20px;
+  font-size: 18px;
+  margin-top: -20px;
+  color: rgba(0, 0, 0, 0.505)  ;
 }
 #n, #em, #issuecateg, #desc{
     font-size: 23px;
@@ -50,6 +52,7 @@ textarea {
     box-sizing: border-box;
     font-size: 20px;
     margin-bottom: 0px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .loginbox{
     width: 900px;
@@ -68,6 +71,8 @@ textarea {
   background: #166534;
   font-size: 23px;
   border-radius: 12px;
+  width: 250px;
+  height: 50px;
 }
 #report:hover{
   background: #22c55e;
@@ -80,3 +85,22 @@ textarea {
 #return:hover{
   color: #22c55e;
 }
+      /*POP UP IN PROGRESS*/
+/*.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background: #eaf4ef;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}*/

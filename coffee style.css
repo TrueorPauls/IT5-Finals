@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
     width: 100%;
     background-color: #d8e2dc; 
-    background-image: url('coffee crop.png');
+    background-image: url('');
     background-position: right;
     background-size: 80% 40%;
     background-position: 390px 0px; 
@@ -21,6 +21,10 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+}
+#kabhome{
+    text-decoration: none;
+    color: black;
 }
 nav {
     position: absolute;

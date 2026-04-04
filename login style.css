@@ -12,6 +12,7 @@ body{
   margin-top: 20px;
   margin-bottom: 500px;
   margin-left: 750px;
+
 }
 #kablogo{
   position: absolute;
@@ -22,16 +23,31 @@ body{
 }
 #intro{
   font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: -20px;
+  color: rgba(0, 0, 0, 0.505);
 }
 #un{
     font-size: 23px;
+    margin-top: 30px;
 }
 #pw{
     font-size: 23px;
+    margin-bottom: 15px;
+}
+input[type="text"],
+input[type="password"] {
+    font-size: 23px;
+    width: 400px;
+    height: 33px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 .loginbox{
     width: 700px;
-    height: 40vh;
+    height: 45vh;
     background:#eaf4ef;
     padding: 50px;
     margin: 20px;
@@ -40,21 +56,24 @@ body{
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
+    padding-top: 0px;
 }
 #submit{
   background: #166534;
   font-size: 23px;
   border-radius: 12px;
+  width: 200px;
+  height: 35px;
 }
 #submit:hover{
   background: #22c55e;
 }
 .logimg{
   position: absolute;
-  height: 40vh;
-  width: 40vh;
+  height: 45vh;
+  width: 45vh;
   top: 300px;
-  left: 425px;
+  left: 390px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
   background-color: black;
@@ -66,4 +85,29 @@ body{
 }
 #return:hover{
   color: #22c55e;
+}
+#customer, #admin{
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+#customer{
+  margin-top: 20px;
+}
+#admin{
+  margin-bottom: 20px;
+}
+#sign{
+  text-decoration: underline;
+  color: black;
+  font-size: 23px;
+}
+#sign:hover {
+    color: #22c55e;
+}
+#or{
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.505);
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

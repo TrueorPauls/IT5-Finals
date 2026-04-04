@@ -20,7 +20,10 @@ body {
     align-items: center;
     position: relative;
 }
-
+#kabhome{
+    text-decoration: none;
+    color: black;
+}
 nav {
     position: absolute;
     top: 0;
@@ -36,6 +39,7 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: black;
+    
 }
 .logo img {
     height: 50px;
