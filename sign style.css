@@ -17,9 +17,9 @@ body{
 #kablogo{
   position: absolute;
   font-size: 40px;
-  margin-top: 106px;
+  margin-top: 127px;
   margin-bottom: 500px;
-  margin-left: 490px;
+  margin-left: 220px;
   text-decoration: none;
   color: black;
 }
@@ -31,46 +31,35 @@ body{
 }
 #un{
     font-size: 23px;
-    margin-top: 30px;
-    text-align: left;
-    display: flex;
-    margin-left: 50px;
+    margin-top: 10px;
+    margin-right: 340px;
+    margin-bottom: -15px;
+
+    
 }
 #pw{
     font-size: 23px;
-    margin-left: 50px;
-    margin-bottom: 15px;
-    text-align: left;
-    display: flex;
+    margin-bottom: -10px;
+    margin-right: 340px; 
 }
-input[type="text"] {
-  font-size: 23px;
-  width: 300px;
-  height: 33px;
-  padding: 8px;
-  margin-left: 50px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-input[type = "password"]{
-  width: 300px;
-  font-size: 23px;
-  height: 33px;
-  padding: 8px;
-  margin-left: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+input[type="text"],
+input[type="password"] {
+    font-size: 23px;
+    width: 400px;
+    height: 33px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 .loginbox{
-    width: 700px;
-    height: 45vh;
+    width: 500px;
+    height: 50vh;
     background:#eaf4ef;
     padding: 50px;
     margin: 20px;
     margin-top: 292px;
-    margin-left: 340px;
+    margin-left: 0px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
@@ -113,7 +102,7 @@ input[type = "password"]{
   margin-top: 20px;
 }
 #admin{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #sign{
   text-decoration: underline;

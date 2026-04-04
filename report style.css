@@ -18,7 +18,9 @@ body{
   font-size: 40px;
   margin-top: 102px;
   margin-bottom: 700px;
-  margin-left: 910px;
+  margin-left: 420px;
+  text-emphasis: none;
+  color: black;
 }
 #intro{
   font-size: 18px;
@@ -39,6 +41,7 @@ input {
     margin-top: 2px;
     margin-bottom: 0px;
     border-radius: 6px;
+    margin-right: 110px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -62,7 +65,7 @@ textarea {
     padding-top: 0px;
     margin: 20px;
     margin-top: 230px;
-    margin-left: 25px;
+    margin-left: 0px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
