@@ -8,23 +8,60 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    background-color: #d8e2dc;
 }
+#aboutus{
+    position: absolute;
+    margin-top: 110vh;
+    font-family: Georgia, "Times New Roman", serif;
+    margin-left: 70vh;
+    font-size: 40px;
+    border-bottom: 1px solid rgba(20, 83, 45, 0.1);
+    width: 60vh;
+    text-align: center;
+}
+
 #story{
-    font-size: 20px;
+    font-size: 23px;
     width: 30%;
     margin-left: 50%;
+    margin-top: 230vh;
 }
 #storyimg{
     position: absolute;
-    margin-left: 50px;
-    height: 50vh;
-    width: 50vh;
+    margin-left: 15vh;
+    height: 40vh;
+    width: 40vh;
     box-shadow: 0 30px 40px rgba(0,0,0,0.3);
     border-radius: 9px;
+    margin-top: 220vh;
+    z-index: 5;
+    border: solid 5px rgba(255, 255, 255, 0.357);
+}
+#storyimg2{
+    position: absolute;
+    margin-left: 50vh;
+    height: 40vh;
+    width: 40vh;
+    box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+    border-radius: 9px;
+    margin-top: 170vh;
+    border: solid 5px rgba(255, 255, 255, 0.357);
+}
+#storyimg3{
+    position: absolute;
+    margin-left: 40vh;
+    height: 40vh;
+    width: 40vh;
+    box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+    border-radius: 9px;
+    margin-top: 290vh;
+    z-index: 10;
+    border: solid 5px rgba(255, 255, 255, 0.357);
 }
 .container {
-    height: 100vh;
+    height: 270vh;
     width: 100%;
     background-color: #d8e2dc; 
     background-position: right;
@@ -52,6 +89,7 @@ nav {
     color: black;
     margin-top: 15px;
     margin-left: 10px;
+    font-family: Georgia, "Times New Roman", serif;
 }
 .logo {
     align-items: center;
@@ -94,23 +132,32 @@ nav ul li a:hover {
     background: #22c55e; 
     color: white;
 }
-
-.hero-text {
+#tagline {
     position: absolute;
-    bottom: 50px;
-    left: 50px;
-    color: black;
+    color: #166534;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-left: 80vh;
+    size: 30vh;
+    font-size: 13vh;
+    width: 30%;
+    margin-top: -100vh;
 }
-
-.hero-text h1 {
-    font-size: 40px;
+#taglineimg{
+    position: absolute;
+    height: 20vh;
+    margin-left: 55vh;
+    margin-top: -95vh;
 }
-
-.hero-text p {
-    margin-top: 10px;
+#tagdesc{
+    position: absolute;
+    color: #3c2f2c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 5vh;
+    margin-left: 80vh;
+    margin-top: -72vh;
 }
-
-
 .highlight-overlay {
     position: absolute;
     left: 35%; 
@@ -118,7 +165,9 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr 1fr;    
-    gap: 40px; 
+    gap: 10vh; 
+    margin-left: -20vh;
+    margin-top: -10vh;
 }
 
 .card {
@@ -133,6 +182,7 @@ nav ul li a:hover {
     background-size: cover;
     background-position: center;
     transition: transform 0.3s ease;
+    height: 35vh;
 }
 
 
@@ -175,6 +225,7 @@ nav ul li a:hover {
     position: relative;
     color: #d8e2dc;
     text-align: center;
+    margin-top: 50vh;
 }
 iframe{
     position: relative;
@@ -205,12 +256,14 @@ iframe{
     margin-left: 70vh;
     width: 15vh;
     text-align: left;
+    font-size: 20px;
 }
 #contactp{
     position: absolute;
     text-align: left;
-    margin-top: -18vh;
-    margin-left: 100vh;
+    margin-top: -18.5vh;
+    margin-left: 106vh;
+    font-size: 20px;
 }
 #fblogo{
     position: absolute;
@@ -218,6 +271,8 @@ iframe{
     width: 5vh;
     background-color: #3c2f2c;
     border-radius: 30px;
+    margin-top: 10vh;
+    margin-left: -47vh;
 }
 #iglogo{
     position: absolute;
@@ -225,13 +280,15 @@ iframe{
     width: 5vh;
     background-color: #3c2f2c;
     border-radius: 30px;
+    margin-top: 10vh;
+    margin-left: -38vh;
 }
 #phonelogo{
-    margin-top: 8vh;
+    margin-top: 9.25vh;
     position: absolute;
-    height: 5vh;
-    width: 5vh;
+    height: 6.5vh;
+    width: 6.5vh;
     background-color: #3c2f2c;
     border-radius: 30px;
-    margin-left: -80vh;
+    margin-left: -85.5vh;
 }
