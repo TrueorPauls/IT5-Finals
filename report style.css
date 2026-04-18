@@ -21,17 +21,20 @@ body{
   margin-left: 420px;
   text-emphasis: none;
   color: black;
+  font-family: Georgia, "Times New Roman", serif;
 }
 #intro{
   font-size: 18px;
   margin-top: -20px;
-  color: rgba(0, 0, 0, 0.505)  ;
+  color: rgba(0, 0, 0, 0.505);
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #n, #em, #issuecateg, #desc{
     font-size: 23px;
     text-align: left;
     display: flex;
     justify-content: space-between;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 input {
     font-size: 23px;
@@ -44,6 +47,7 @@ input {
     margin-right: 110px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 textarea {
     width: 80%;
@@ -55,7 +59,7 @@ textarea {
     box-sizing: border-box;
     font-size: 20px;
     margin-bottom: 0px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 .loginbox{
     width: 900px;
@@ -69,6 +73,7 @@ textarea {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
+    font-family: Georgia, "Times New Roman", serif;
 }
 #report{
   background: #166534;
@@ -76,6 +81,7 @@ textarea {
   border-radius: 12px;
   width: 250px;
   height: 50px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #report:hover{
   background: #22c55e;
@@ -84,6 +90,7 @@ textarea {
   color: black;
   font-size: 20px;
   text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #return:hover{
   color: #22c55e;

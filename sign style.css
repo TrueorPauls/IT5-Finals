@@ -22,25 +22,28 @@ body{
   margin-left: 220px;
   text-decoration: none;
   color: black;
+  font-family: Georgia, "Times New Roman", serif;
 }
 #intro{
   font-size: 20px;
   margin-bottom: 0px;
   margin-top: -20px;
   color: rgba(0, 0, 0, 0.505);
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #un{
     font-size: 23px;
     margin-top: 10px;
     margin-right: 340px;
     margin-bottom: -15px;
-
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
     
 }
 #pw{
     font-size: 23px;
     margin-bottom: -10px;
     margin-right: 340px; 
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 input[type="text"],
 input[type="password"] {
@@ -51,6 +54,7 @@ input[type="password"] {
     border-radius: 6px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 .loginbox{
     width: 500px;
@@ -64,6 +68,7 @@ input[type="password"] {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     padding-top: 0px;
+    font-family: Georgia, "Times New Roman", serif;
 }
 #submit{
   background: #166534;
@@ -71,6 +76,7 @@ input[type="password"] {
   border-radius: 12px;
   width: 200px;
   height: 35px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #submit:hover{
   background: #22c55e;
@@ -89,6 +95,7 @@ input[type="password"] {
   color: black;
   font-size: 20px;
   text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #return:hover{
   color: #22c55e;
@@ -97,6 +104,7 @@ input[type="password"] {
   font-size: 20px;
   margin-bottom: 5px;
   margin-top: 0px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #customer{
   margin-top: 20px;

@@ -22,12 +22,14 @@ body{
   margin-left: 490px;
   text-decoration: none;
   color: black;
+  font-family: Georgia, "Times New Roman", serif;
 }
 #intro{
   font-size: 20px;
   margin-bottom: 0px;
   margin-top: -20px;
   color: rgba(0, 0, 0, 0.505);
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #un{
     font-size: 23px;
@@ -35,6 +37,7 @@ body{
     text-align: left;
     display: flex;
     margin-left: 50px;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #pw{
     font-size: 23px;
@@ -42,6 +45,7 @@ body{
     margin-bottom: 15px;
     text-align: left;
     display: flex;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 input[type="text"] {
   font-size: 23px;
@@ -52,6 +56,7 @@ input[type="text"] {
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 input[type = "password"]{
   width: 300px;
@@ -62,6 +67,7 @@ input[type = "password"]{
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 .loginbox{
     width: 700px;
@@ -75,6 +81,7 @@ input[type = "password"]{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     padding-top: 0px;
+    font-family: Georgia, "Times New Roman", serif;
 }
 #submit{
   background: #166534;
@@ -96,18 +103,11 @@ input[type = "password"]{
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
   background-color: black;
 }
-#return{
-  color: black;
-  font-size: 20px;
-  text-decoration: none;
-}
-#return:hover{
-  color: #22c55e;
-}
 #customer, #admin{
   font-size: 20px;
   margin-bottom: 5px;
   margin-top: 0px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #customer{
   margin-top: 20px;
@@ -119,6 +119,7 @@ input[type = "password"]{
   text-decoration: underline;
   color: black;
   font-size: 23px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #sign:hover {
     color: #22c55e;
@@ -128,4 +129,5 @@ input[type = "password"]{
   color: rgba(0, 0, 0, 0.505);
   margin-top: 5px;
   margin-bottom: 5px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }

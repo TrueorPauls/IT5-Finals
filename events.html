@@ -7,50 +7,130 @@
     <link rel="stylesheet" href="events.css">
 </head>
 <body>
-    <section class="container">
-
-    <nav>
+     <body>
+        
+    <nav class="main-nav">
         <div class="logo"><a href="index.html"><img src="qt=q_95.webp" alt="Kabesera Cafe"></a>
-            <a id="kabhome"href="index.html">Kabesera Cafe</a>
+            <a id="kabhome" href="index.html">Kabesera Cafe</a>
         </div>
-
-        <ul>
-            <li id="foodbtn"><a href="food.html">Food</a></li>
+        <ul class="nav-links">
+           <li id="foodbtn"><a href="food.html">Food</a></li>
             <li id="coffeebtn"><a href="coffee.html">Coffee</a></li>
-            <li id="contactbtn"><a href="index.html#contacts">Contact</a></li>
+            <li id="contactbtn"><a href="events.html#contacts">Contact</a></li>
             <li id="eventsbtn"><a href="events.html">Events</a></li>
             <li><a href="report.html">Report</a></li>
             <li><a href="log-in.html" class="btn">Log-In</a></li>
         </ul>
     </nav>
-    <div class="highlight-overlay">
-        <div class="card">
-            <h3>Under Construction</h3>     
-        </div>
-        <div class="card">
-            <h3>Under Construction</h3>
-           
-        </div>
-        <div class="card">
-            <h3>Under Construction</h3>
-           
-        </div>
-        <div class="card">
-            <h3>Under Construction</h3>
 
-        </div>
-        <div class="card">
-            <h3>Under Construction</h3>
 
-        </div>
-        <div class="card">
-            <h3>Under Construction</h3>
 
+    <section class="menu-page">
+        <div class="menu-sidebar">
+            <div class="sidebar-content">
+                <h2>Event Categories</h2>
+                <ul class="category-links">
+                    <li><a href="#breakfast" class="menu-link">Morning Events</a></li>
+                    <li><a href="#lunch" class="menu-link">Afternoon Events</a></li>
+                    <li><a href="#pastries" class="menu-link">Evening Events</a></li>
+                    
+                </ul>
+            </div>
         </div>
-    </div>
+
+        <div class="menu-items">
+
+            <section id="breakfast" class="menu-section">
+                <h3 class="sticky-header">Morning Events (7:00 - 11:00AM)</h3>
+
+                <div class="food-feature">
+                    <img src="https://images.smartparenting.com.ph/smartpar/images/2018/06/09/Comidachina2venuejune618.jpg" alt="christening">
+                    <div class="feature-info">
+                        <h4>Christening and Baptismal Brunches</h4>
+                        <p id="desc">Celebrate a new beginning in a serene garden setting perfect for a peaceful family brunch. This slot offers a quiet, respectful atmosphere to honor tradition followed by a light and refreshing meal.</p>
+                    </div>
+                </div>
+                <div class="food-feature">
+                    <img src="https://t4.ftcdn.net/jpg/12/28/16/05/360_F_1228160591_iDcMCRtYcE7preauvBd1mQMlbizEOht9.jpg" alt="corporate">
+                    <div class="feature-info">
+                        <h4>Corporate Breakfast</h4>
+                        <p id="desc">Host a productive networking session fueled by premium coffee and a curated breakfast buffet. Our tranquil environment provides a professional yet relaxed backdrop for team-building and strategic planning.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="lunch" class="menu-section">
+                <h3 class="sticky-header">Afternoon Events (12:00 - 4:00PM)</h3>
+
+                <div class="food-feature reverse">
+                    <img src="https://fu-cafe.com/wp-content/uploads/2025/03/BS1-768x432.jpeg" alt="bbshowers">
+                    <div class="feature-info">
+                        <h4>Baby Showers and Gender Reveal Parties</h4>
+                        <p id="desc">Utilize our natural garden lighting for a photo-perfect afternoon celebrating your new arrival with friends. This socially focused space is ideal for light refreshments, games, and creating lasting memories.</p>
+                    </div>
+                </div>
+
+                <div class="food-feature reverse">
+                    <img src="https://sanrafaelriveradventure.com/wp-content/uploads/2024/04/IMG_9895.jpg" alt="reunions">
+                    <div class="feature-info">
+                        <h4>Reunions with Family and Friends</h4>
+                        <p id="desc">Reconnect with old friends or distant relatives in a central, cozy venue designed for long, comfortable conversations. This relaxed time slot allows for sharing platters and nostalgic storytelling over signature afternoon lattes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pastries" class="menu-section">
+                <h3 class="sticky-header">Evening Events (5:00 - 10:00 PM)</h3>
+
+                <div class="food-feature">
+                    <img src="https://media.istockphoto.com/id/472681224/photo/cup-of-coffee.jpg?s=612x612&w=0&k=20&c=R5OmA6Iwdeb4H02Q5OOCgVDRn5CAKFx_yMq_bLK1Y8Q=" alt="acoustic">
+                    <div class="feature-info">
+                        <h4>Acoustic Nights</h4>
+                        <p id="desc">Unwind under the stars with live indie performances that complement the cafe’s chilled, evening atmosphere. It is the perfect opportunity for guests to enjoy savory small plates while supporting talented local musicians.</p>
+                    </div>
+                </div>
+
+                <div class="food-feature">
+                    <img src="https://www.shutterstock.com/shutterstock/videos/3939400357/thumb/1.jpg?ip=x480" alt="yearend">
+                    <div class="feature-info">
+                        <h4>Company Year-End Dinners</h4>
+                        <p id="desc">Celebrate a year of hard work with a formal dinner buffet and a private space for employee awards. This evening slot transforms the cafe into a festive venue for team recognition and holiday cheers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <h2 id="bookheader">Planning an Event? Inquire now!</h3>
+            <div id="book">
+            <p id="clientname">Name: <input type="text" name="clientname" id="clientinput" placeholder="Name" ></p>
+            <p id="contactinfo">Contact Info: <input type="text" name="contactinfo" placeholder="Email/Phone" id="contactinput"></p>
+            <p id="eventtype">Event Type: <input type="text" name = "eventype" placeholder="Wedding, reunions, etc." id="eventinput"></p>
+            <p id = "timeslot">Time Slot: <select name = "timeslot" id="timeinput">
+                <option value="" disabled selected hidden></option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+                </select>
+            </p>
+            <p id = "guests">Guest Count: <input type="number" name="guests" placeholder="Number of guests" id="guestinput"></p>
+            <p id="date">Date: <input type="date" name="date" id="dateinput"></p>
+            <p id = "details">Details: <textarea name="details" placeholder="Describe your event's details" id="detailsinput"></textarea></p>
+            <button type="submit" name="submitreq" id="submitreq">Submit Request</button>
+            </div>
+        </div>
+
     </section>
-    <div class="eventreviews">
-        <p>FOR CUSTOMER REVIEWS/SENTIMENT ANALYSIS</p>
-    </div>
+
+    <footer id="contacts">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6724.533922972201!2d121.16985820326182!3d14.52881320729157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c1beec0729eb%3A0xf56e6a82c695b39!2sKabesera%20Caf%C3%A9!5e0!3m2!1sen!2sph!4v1775355779679!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h1 id="address">Address</h1>
+        <p id="addp">Block 8 Lot 2, Eastridge Village, Angono, 1930 Rizal</p>
+        <h1 id="contactno">Contact Us</h1>
+    <img src="phone logo.png" id="phonelogo">
+        <p id="contactp">09667625352</p>
+        <h1 id="socmed">Social Media</h1>
+        <a href="https://www.facebook.com/kabesera"><img src="facebook logo.png" id="fblogo"></a>
+        <a href="https://www.instagram.com/kabeseracafe/"><img src="instagram logo.png" id="iglogo"></a>
+    </footer>
 </body>
 </html>
