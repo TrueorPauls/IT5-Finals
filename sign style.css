@@ -77,6 +77,7 @@ input[type="password"] {
   width: 200px;
   height: 35px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-top: 40px;
 }
 #submit:hover{
   background: #22c55e;
@@ -99,12 +100,6 @@ input[type="password"] {
 }
 #return:hover{
   color: #22c55e;
-}
-#customer, #admin{
-  font-size: 20px;
-  margin-bottom: 5px;
-  margin-top: 0px;
-  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 #customer{
   margin-top: 20px;

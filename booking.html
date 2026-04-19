@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabesera Cafe Admin</title>
+    <link rel="stylesheet" href="booking.css">
+
+</head>
+
+<body>
+    <section class="container">
+
+    <nav class="navbar">
+        <div class="logo"><a href="admin dashboard.html"><img src="qt=q_95.webp" alt="Kabesera Cafe"></a>
+            <a id="kabhome" href="admin dashboard.html">Kabesera Cafe</a>
+        </div>
+        <ul>
+            <li><a href="orders.html">Order Management</a></li>
+            <li><a href="report repository.html">Insights</a></li>
+            <li><a href="booking.html">Event Reservations</a></li>
+            <li><a href="sandbox.html">Sandbox Settings</a></li>
+            <li><a href="log-in.html" class="btn">Log-In</a></li>
+        </ul>
+    </nav>
+    <h1 id="reporttitle">Event Reservations</h1>
+    <div class="table-container">
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Client Name</th>
+                <th>Event Type</th>
+                <th>Date / Slot</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#EV-1001</td>
+                <td>Paul Evhan Rabulan</td>
+                <td>Engagement Breakfast</td>
+                <td>2026-05-12 <br><small>Morning</small></td>
+                <td>Minimalist, white/light colorway</td>
+                <td>
+                    <select class="status-select">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="action-group">
+                        <button class="save-btn">Update</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>#EV-1002</td>
+                <td>Raymond Diong</td>
+                <td>Bulalo Night</td>
+                <td>2026-05-15 <br><small>Evening</small></td>
+                <td>Cozy, chill, unwind</td>
+                <td>
+                    <select class="status-select">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="action-group">
+                        <button class="save-btn">Update</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body> 
+
+</html>

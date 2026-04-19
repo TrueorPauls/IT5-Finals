@@ -1,0 +1,120 @@
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    background-color: #d8e2dc;
+}
+.container {
+    width: 100%;
+    background-color: #d8e2dc; 
+    background-position: right;
+    background-size: 80% 100%;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3c2f2c;
+}
+#kabhome{
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+.logo {
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    
+}
+.logo img {
+    height: 50px;
+    width: 50px;
+    
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+nav ul li a:hover {
+    color: #22c55e; 
+}
+
+.btn {
+    background: #166534;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+.btn:hover {
+    background: #22c55e; 
+    color: white;
+}
+#admintemp{
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    margin-top: 70px;
+    margin-left: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+#tagline {
+    position: absolute;
+    color: #166534;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-left: 80vh;
+    size: 30vh;
+    font-size: 13vh;
+    width: 30%;
+    margin-top: 35vh;
+}
+#taglineimg{
+    position: absolute;
+    height: 20vh;
+    margin-left: 55vh;
+    margin-top: 40vh;
+}
+#tagdesc{
+    position: absolute;
+    color: #3c2f2c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 5vh;
+    margin-left: 80vh;
+    margin-top: 63vh;
+}

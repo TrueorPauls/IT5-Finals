@@ -87,9 +87,19 @@ nav {
     position: absolute;
     text-decoration: none;
     color: black;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+#admintemp{
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    margin-top: 70px;
+    margin-left: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
 }
 .logo {
     align-items: center;

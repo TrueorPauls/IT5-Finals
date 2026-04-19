@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabesera Cafe Admin</title>
+    <link rel="stylesheet" href="orders style.css">
+
+</head>
+
+<body>
+    <section class="container">
+
+    <nav class="navbar">
+        <div class="logo"><a href="admin dashboard.html"><img src="qt=q_95.webp" alt="Kabesera Cafe"></a>
+            <a id="kabhome" href="admin dashboard.html">Kabesera Cafe</a>
+        </div>
+        <ul>
+            <li><a href="orders.html">Order Management</a></li>
+            <li><a href="report repository.html">Insights</a></li>
+            <li><a href="booking.html">Event Reservations</a></li>
+            <li><a href="sandbox.html">Sandbox Settings</a></li>
+            <li><a href="log-in.html" class="btn">Log-In</a></li>
+        </ul>
+    </nav>
+    <h1 id="ordertitle">Order Management</h1>
+    <div class="ordertaker">
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>PO ID</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Items</th>
+                <th>Qty</th>
+                <th>Total Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#PO-2026-001</td>
+                <td>2026-04-19</td>
+                <td>Randy F. Bi</td>
+                <td>Purok Pogi, Biringan City</td>
+                <td>Brewed Coffee, Pastry</td>
+                <td>1</td>
+                <td>₱300.00</td>
+                <td>
+                <select class="status-dropdown">
+                        <option value="pending" selected>Pending</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </td>
+                <td><button class="save-btn">Update</button></td>
+            </tr>
+            <tr>
+                <td>#PO-2026-002</td>
+                <td>2026-04-19</td>
+                <td>Jack Son</td>
+                <td>Hee hee st., D2 n me, wer n u</td>
+                <td>Iced Latte, Pastry</td>
+                <td>2</td>
+                <td>₱500.00</td>
+                <td>
+                <select class="status-dropdown">
+                        <option value="pending" selected>Pending</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </td>
+                <td><button class="save-btn">Update</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+</body> 
+
+</html>
