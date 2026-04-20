@@ -1,16 +1,15 @@
 <?php
-session_start();
 include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['user_id'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
 
-    $sql = "INSERT INTO reports (user_id, subject, message)
-            VALUES ('$user_id', '$subject', '$message')";
+    $subject = $_POST['issuecateg'];
+    $message = $_POST['desc'];
 
-    if ($conn->query($sql) === TRUE) {
+    $sql = "INSERT INTO reports (subject, message)
+            VALUES ('$subject', '$message')";
+
+    if ($conn->query($sql)) {
         echo "Report submitted!";
     } else {
         echo "Error: " . $conn->error;

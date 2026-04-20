@@ -2,24 +2,24 @@
 session_start();
 include 'config.php';
 
-$secretKey = "6LdAP8AsAAAAAL-1IIVrVehmyTUQLhx4E_K3tAes";
+$secretKey = "YOUR_SECRET_KEY";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    // reCAPTCHA
     $captcha = $_POST['g-recaptcha-response'];
-
     $verify = file_get_contents(
         "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha"
     );
-
     $response = json_decode($verify);
 
     if (!$response->success) {
-        die("reCAPTCHA verification failed!");
+        die("reCAPTCHA failed!");
     }
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    // MATCHED NAMES
+    $email = $_POST['un'];
+    $password = $_POST['pw'];
 
     $sql = "SELECT * FROM users WHERE email='$email'";
     $result = $conn->query($sql);
@@ -29,7 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            echo "Login successful!";
+
+            // OPTIONAL ROLE CHECK
+            if ($_POST['role'] == "admin") {
+                header("Location: admin_dashboard.html");
+            } else {
+                header("Location: index.html");
+            }
+
         } else {
             echo "Wrong password!";
         }
