@@ -1,32 +1,38 @@
 <?php
 session_start();
-include("connect.php");
+include 'config.php';
 
-if (isset($_POST['Submit'])) {
-    $username = $_POST['un'];
-    $password = $_POST['pw'];
+$secretKey = "6LdAP8AsAAAAAL-1IIVrVehmyTUQLhx4E_K3tAes";
 
-    $sql = "SELECT * FROM users WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    $captcha = $_POST['g-recaptcha-response'];
 
-        if (password_verify($password, $row['password'])) {
+    $verify = file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha"
+    );
 
-            $_SESSION['user'] = $row['username'];
-            $_SESSION['role'] = $row['role'];
+    $response = json_decode($verify);
 
-            if ($row['role'] == "admin") {
-                header("Location: admin_dashboard.php");
-            } else {
-                header("Location: index.html");
-            }
+    if (!$response->success) {
+        die("reCAPTCHA verification failed!");
+    }
 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            echo "Login successful!";
         } else {
             echo "Wrong password!";
         }
-
     } else {
         echo "User not found!";
     }
