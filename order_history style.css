@@ -1,0 +1,104 @@
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Segoe UI", Tahoma, Verdana, sans-serif; background-color: #d8e2dc; }
+
+nav {
+    position: fixed; top: 0; width: 100%; height: 80px;
+    padding: 20px 50px; display: flex;
+    justify-content: space-between; align-items: center;
+    background-color: #3c2f2c; z-index: 1000;
+}
+#kabhome {
+    position: absolute; text-decoration: none; color: #f0ebe3;
+    margin-top: 10px; margin-left: 10px;
+    font-family: Georgia, "Times New Roman", serif; font-size: 2rem;
+}
+.logo { font-size: 24px; font-weight: bold; color: black; }
+.logo img { height: 50px; width: 50px; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+nav ul li a { text-decoration: none; color: white; font-weight: 500; }
+nav ul li a:hover { color: #22c55e; }
+.btn { background: #166534; color: white; padding: 8px 15px; border-radius: 3px; }
+.btn:hover { background: #22c55e; color: white; }
+
+/* PAGE */
+.page-header {
+    margin-top: 80px; padding: 40px 60px 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    border-bottom: 2px solid rgba(20,83,45,0.15);
+}
+.page-header h1 { font-size: 2.5rem; color: #14532d; }
+.page-header p { color: #555; margin-top: 6px; }
+
+.history-wrapper { padding: 30px 60px 60px; }
+
+/* EMPTY STATE */
+.empty-orders {
+    text-align: center; padding: 80px 20px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07); max-width: 500px; margin: 0 auto;
+}
+.empty-orders .icon { font-size: 3.5rem; margin-bottom: 16px; }
+.empty-orders h2 { color: #14532d; font-family: Georgia, serif; font-size: 1.7rem; }
+.empty-orders p { color: #666; margin: 10px 0 24px; }
+.empty-orders a {
+    display: inline-block; background: #14532d; color: #fff;
+    padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600;
+}
+.empty-orders a:hover { background: #22c55e; }
+
+/* ORDER CARD */
+.order-card {
+    background: #fff; border-radius: 12px; margin-bottom: 22px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08); overflow: hidden;
+}
+.order-card-header {
+    background: #14532d; color: #fff;
+    padding: 16px 24px; display: flex;
+    justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+}
+.order-num { font-weight: bold; font-size: 1.1rem; letter-spacing: 0.5px; }
+.order-date { font-size: 0.88rem; opacity: 0.85; }
+.status-badge {
+    padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;
+}
+.status-Pending    { background: #fff3cd; color: #856404; }
+.status-Preparing  { background: #cce5ff; color: #004085; }
+.status-Shipped    { background: #d1ecf1; color: #0c5460; }
+.status-Completed  { background: #d4edda; color: #155724; }
+.status-Cancelled  { background: #f8d7da; color: #721c24; }
+
+.order-card-body { padding: 20px 24px; }
+.order-meta { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 18px; }
+.order-meta-item label { display: block; font-size: 0.78rem; text-transform: uppercase; color: #888; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px; }
+.order-meta-item span { color: #222; font-size: 0.95rem; }
+
+.items-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.items-table th {
+    background: #f4f7f5; text-align: left; padding: 9px 12px;
+    color: #14532d; font-weight: 600; font-size: 0.82rem; text-transform: uppercase;
+}
+.items-table td { padding: 10px 12px; border-bottom: 1px solid #eef2ef; }
+.items-table tr:last-child td { border-bottom: none; }
+
+.order-total-row {
+    display: flex; justify-content: flex-end;
+    padding: 14px 24px; border-top: 2px solid #eef2ef;
+    font-weight: bold; font-size: 1.1rem; color: #14532d;
+    background: #f9fbf9;
+}
+.order-notes {
+    padding: 12px 24px; font-size: 0.9rem; color: #555;
+    background: #fffbea; border-top: 1px solid #ffe082;
+}
+
+/* FILTER TABS */
+.filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-btn {
+    padding: 8px 18px; border-radius: 20px; border: 2px solid #14532d;
+    background: #fff; color: #14532d; cursor: pointer; font-weight: 600;
+    text-decoration: none; font-size: 0.88rem; transition: 0.2s;
+}
+.filter-btn:hover, .filter-btn.active { background: #14532d; color: #fff; }
