@@ -1,14 +1,14 @@
 <?php
 session_start();
-include("connect.php");
+include("config.php");
 
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
-$username = $_SESSION['user'];
-$user_sql = "SELECT id, full_name, address FROM users WHERE username = '" . mysqli_real_escape_string($conn, $username) . "'";
+$email = $_SESSION['user'];
+$user_sql = "SELECT id, full_name, address FROM users WHERE email = '" . mysqli_real_escape_string($conn, $email) . "'";
 $user_res = mysqli_query($conn, $user_sql);
 $user = mysqli_fetch_assoc($user_res);
 $user_id = $user['id'];
@@ -183,3 +183,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+
