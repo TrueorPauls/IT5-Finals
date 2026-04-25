@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+include("config.php");
 
 // Must be logged in
 if (!isset($_SESSION['user'])) {
@@ -8,8 +8,8 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-$username = $_SESSION['user'];
-$user_sql = "SELECT id, full_name FROM users WHERE username = '$username'";
+$email = $_SESSION['user'];
+$user_sql = "SELECT id, full_name FROM users WHERE email = '$email'";
 $user_res = mysqli_query($conn, $user_sql);
 $user = mysqli_fetch_assoc($user_res);
 $user_id = $user['id'];
@@ -80,7 +80,7 @@ $total_qty = array_sum(array_column($cart_items, "quantity"));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cart – Kabesera Cafe</title>
+    <title>My Cart </title>
     <link rel="stylesheet" href="cart style.css">
 </head>
 <body>
