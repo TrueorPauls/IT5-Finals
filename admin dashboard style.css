@@ -1,29 +1,14 @@
-html {
-    scroll-behavior: smooth;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
     background-color: #d8e2dc;
 }
-.container {
-    width: 100%;
-    background-color: #d8e2dc; 
-    background-position: right;
-    background-size: 80% 100%;
-    background-repeat: no-repeat;
-    image-rendering: -webkit-optimize-contrast;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+
+
 nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
@@ -32,89 +17,124 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #3c2f2c;
+    z-index: 1000;
 }
-#kabhome{
+#kabhome {
     position: absolute;
     text-decoration: none;
-    color: black;
+    color: #f0ebe3;
     margin-top: 10px;
     margin-left: 10px;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 2rem;
 }
-.logo {
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    
-}
-.logo img {
-    height: 50px;
-    width: 50px;
-    
+.logo { align-items: center; font-size: 24px; font-weight: bold; color: black; }
+.logo img { height: 50px; width: 50px; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+nav ul li a { text-decoration: none; color: white; font-weight: 500; }
+nav ul li a:hover { color: #22c55e; }
+.btn { background: #166534; color: white; padding: 8px 15px; border-radius: 3px; }
+.btn:hover { background: #22c55e; color: white; }
+
+
+.page-content {
+    padding: 100px 40px 60px;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-}
-nav ul li a:hover {
-    color: #22c55e; 
-}
-
-.btn {
-    background: #166534;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 3px;
-}
-.btn:hover {
-    background: #22c55e; 
-    color: white;
-}
-#admintemp{
-    position: absolute;
-    text-decoration: none;
-    color: black;
-    margin-top: 70px;
-    margin-left: 10px;
+h1 {
+    text-align: center;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 30px;
 }
-#tagline {
-    position: absolute;
-    color: #166534;
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: bold;
-    letter-spacing: 5px;
-    margin-left: 80vh;
-    size: 30vh;
-    font-size: 13vh;
-    width: 30%;
-    margin-top: 35vh;
+
+
+.table-wrap {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
-#taglineimg{
-    position: absolute;
-    height: 20vh;
-    margin-left: 55vh;
-    margin-top: 40vh;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
 }
-#tagdesc{
-    position: absolute;
-    color: #3c2f2c;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 5vh;
-    margin-left: 80vh;
-    margin-top: 63vh;
+
+thead tr {
+    background-color: #4a5c52;
+    color: #fff;
+}
+
+thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eef2ef;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f4f7f5;
+}
+
+tbody td {
+    padding: 13px 16px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.po-id {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+
+.status-select {
+    padding: 6px 10px;
+    border: 1.5px solid #aaa;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+    min-width: 120px;
+}
+.status-select:focus {
+    border-color: #4a5c52;
+}
+
+
+.update-btn {
+    background: #4a5c52;
+    color: #fff;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.update-btn:hover {
+    background: #22c55e;
+}
+
+
+.empty-row td {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 1rem;
 }
