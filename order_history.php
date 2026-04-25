@@ -1,14 +1,14 @@
 <?php
 session_start();
-include("connect.php");
+include("config.php");
 
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
-$username = $_SESSION['user'];
-$user_sql = "SELECT id, full_name FROM users WHERE username = '" . mysqli_real_escape_string($conn, $username) . "'";
+$email = $_SESSION['user'];
+$user_sql = "SELECT id, full_name FROM users WHERE email = '" . mysqli_real_escape_string($conn, $email) . "'";
 $user_res = mysqli_query($conn, $user_sql);
 $user = mysqli_fetch_assoc($user_res);
 $user_id = $user['id'];
@@ -61,8 +61,8 @@ $statuses = ['all', 'Pending', 'Preparing', 'Shipped', 'Completed', 'Cancelled']
 </nav>
 
 <div class="page-header">
-    <h1>📋 My Orders</h1>
-    <p>Hello, <?= htmlspecialchars($user['full_name'] ?: $username) ?> — here is your order history.</p>
+    <h1>My Orders</h1>
+    <p>Hello, <?= htmlspecialchars($user['full_name'] ?: $email) ?> — here is your order history.</p>
 </div>
 
 <div class="history-wrapper">
