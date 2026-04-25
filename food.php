@@ -1,13 +1,13 @@
 <?php
 session_start();
-include("connect.php");
+include("config.php");
 
 $logged_in = isset($_SESSION['user']);
 
 // Add to cart
 if ($logged_in && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['menu_item_id'])) {
-    $username = $_SESSION['user'];
-    $uid_res = mysqli_query($conn, "SELECT id FROM users WHERE username='" . mysqli_real_escape_string($conn, $username) . "'");
+    $email = $_SESSION['user'];
+    $uid_res = mysqli_query($conn, "SELECT id FROM users WHERE email='" . mysqli_real_escape_string($conn, $email) . "'");
     $uid_row = mysqli_fetch_assoc($uid_res);
     $user_id = $uid_row['id'];
     $item_id = (int)$_POST['menu_item_id'];
@@ -26,8 +26,8 @@ if ($logged_in && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['menu_it
 // Cart count
 $cart_count = 0;
 if ($logged_in) {
-    $username = $_SESSION['user'];
-    $uid_res = mysqli_query($conn, "SELECT id FROM users WHERE username='" . mysqli_real_escape_string($conn, $username) . "'");
+    $email = $_SESSION['user'];
+    $uid_res = mysqli_query($conn, "SELECT id FROM users WHERE email='" . mysqli_real_escape_string($conn, $email) . "'");
     $uid_row = mysqli_fetch_assoc($uid_res);
     if ($uid_row) {
         $user_id = $uid_row['id'];
