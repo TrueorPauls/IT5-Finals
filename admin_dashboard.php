@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($orders_res)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Management – Kabesera Cafe</title>
-    <link rel="stylesheet" href="admin_dashboard_style.css">
+    <link rel="stylesheet" href="admin dashboard style.css">
 </head>
 <body>
 
