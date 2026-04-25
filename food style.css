@@ -202,3 +202,69 @@ html {
     color: #d8e2dc;
     text-align: center;
 }
+.add-btn {
+    background: #14532d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: 0.2s;
+    display: block;
+    margin-top: 8px;
+}
+
+.add-btn:hover {
+    background: #22c55e;
+}
+
+.login-hint {
+    font-size: 0.78rem;
+    color: #888;
+    display: block;
+    margin-top: 6px;
+}
+
+.cart-badge {
+    background: #22c55e;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.flash-added {
+    position: fixed;
+    top: 90px;
+    right: 24px;
+    background: #d4edda;
+    color: #155724;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
+    z-index: 9999;
+    animation: fadeout 2.5s forwards;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1
+    }
+
+    70% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.food-item {
+    position: relative;
+}
