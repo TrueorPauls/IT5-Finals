@@ -131,3 +131,49 @@ input[type = "password"]{
   margin-bottom: 5px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
+.error-msg {
+  color: #c0392b;
+  background: #fde8e8;
+  padding: 10px 14px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  border: 1px solid #f5c6cb;
+  text-align: center;
+}
+
+.role-group {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 15px 0;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+.role-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #166534;
+  cursor: pointer;
+  margin: 0;
+}
+
+input[type="email"] {
+  font-size: 23px;
+  width: 300px;
+  height: 33px;
+  padding: 8px;
+  margin-left: 50px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
