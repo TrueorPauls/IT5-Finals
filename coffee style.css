@@ -168,7 +168,10 @@ html {
     margin-left: auto;
     font-size: 1.3rem;
 }
-
+.add-to-cart-btn{
+    position: absolute;
+    margin-left: 80vh;
+}
 .item-info {
     display: flex;
     flex-direction: column;

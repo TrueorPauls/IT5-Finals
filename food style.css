@@ -20,9 +20,10 @@ body {
     position: absolute;
     text-decoration: none;
     color: black;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
 }
 
 .menu-items {

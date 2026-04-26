@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 include("config.php");
  
@@ -33,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Submit'])) {
  
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            if (password_verify($password, $row['password'])) {
+            if ($password === $row['password']) {
                 if ($row['role'] !== $selected_role) {
                     $error = "Incorrect role selected for this account.";
                 } else {
@@ -62,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-In Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="login style.css">
 </head>
 <body>
     <img src="qt=q_95.webp" class="logoimg">
     <a href="index.php"><h1 id="kablogo">Kabesera Cafe</h1></a>
- 
+<img src="kabesera-cafe-s-nature (6) (1).jpg" class="logimg">
     <form method="post" action="login.php" class="loginbox">
     <div class="login">
         <h1>Welcome Back!</h1>
@@ -91,10 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Submit'])) {
         <p id="admin"><input type="radio" name="role" value="admin"
             <?= (($_POST['role'] ?? '') === 'admin') ? 'checked' : '' ?>> Admin</p>
  
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <div class="g-recaptcha" data-sitekey="6LdAP8AsAAAAAMY2L3-Qu5K1tVMnXUAg_Jwi5q_o"></div>
+        
  
         <button id="submit" type="submit" name="Submit">Log-In</button>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <div class="g-recaptcha" data-sitekey="6LdAP8AsAAAAAMY2L3-Qu5K1tVMnXUAg_Jwi5q_o"></div>
         <br>
         <p id="or">or</p>
         <a id="sign" href="signup.php">Sign Up</a><br>

@@ -10,16 +10,15 @@ body{
 .logoimg{
   position: absolute;
   margin-top: 20px;
-  margin-bottom: 500px;
+  margin-bottom: 550px;
   margin-left: 700px;
-
 }
 #kablogo{
   position: absolute;
   font-size: 40px;
-  margin-top: 106px;
+  margin-top: 130px;
   margin-bottom: 500px;
-  margin-left: 490px;
+  margin-left: 500px;
   text-decoration: none;
   color: black;
   font-family: Georgia, "Times New Roman", serif;
@@ -71,12 +70,12 @@ input[type = "password"]{
 }
 .loginbox{
     width: 700px;
-    height: 45vh;
+    height: 55vh;
     background:#eaf4ef;
     padding: 50px;
     margin: 20px;
     margin-top: 292px;
-    margin-left: 340px;
+    margin-left: 360px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
@@ -95,10 +94,10 @@ input[type = "password"]{
 }
 .logimg{
   position: absolute;
-  height: 45vh;
-  width: 45vh;
+  height: 55vh;
+  width: 55vh;
   top: 300px;
-  left: 390px;
+  left: 310px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
   background-color: black;
@@ -127,9 +126,15 @@ input[type = "password"]{
 #or{
   font-size: 18px;
   color: rgba(0, 0, 0, 0.505);
-  margin-top: 5px;
+  margin-top: -1vh;
   margin-bottom: 5px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+.g-recaptcha{
+  position: relative;
+  align-self: center;
+  margin-left: 16.5vh;
+  margin-top: 1vh;
 }
 .error-msg {
   color: #c0392b;
@@ -141,14 +146,12 @@ input[type = "password"]{
   border: 1px solid #f5c6cb;
   text-align: center;
 }
-
 .role-group {
   display: flex;
   justify-content: center;
   gap: 40px;
   margin: 15px 0;
 }
-
 .role-option {
   display: flex;
   align-items: center;
@@ -157,7 +160,6 @@ input[type = "password"]{
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   cursor: pointer;
 }
-
 .role-option input[type="radio"] {
   width: 18px;
   height: 18px;
@@ -165,7 +167,6 @@ input[type = "password"]{
   cursor: pointer;
   margin: 0;
 }
-
 input[type="email"] {
   font-size: 23px;
   width: 300px;

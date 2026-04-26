@@ -37,12 +37,12 @@ if ($logged_in) {
         <ul>
             <li><a href="food.php">Food</a></li>
             <li><a href="coffee.php">Coffee</a></li>
-            <li><a href="events.html">Events</a></li>
+            <li><a href="events.php">Events</a></li>
             <li><a href="#contacts">Contact</a></li>
             <li><a href="#aboutus">About Us</a></li>
             <?php if ($logged_in): ?>
                 <li>
-                    <a href="cart.php">🛒 Cart
+                    <a href="cart.php">Cart
                         <?php if ($cart_count > 0): ?>
                             <span class="cart-badge"><?= $cart_count ?></span>
                         <?php endif; ?>

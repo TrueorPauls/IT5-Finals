@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Submit'])) {
         if (mysqli_num_rows($check) > 0) {
             $error = "An account with this email already exists.";
         } else {
-            $hashed = password_hash($password, PASSWORD_DEFAULT);
+            $hashed = $password;
             $insert = "INSERT INTO users (email, password, full_name, role)
                        VALUES ('$email', '$hashed', '$fullname', 'customer')";
             if (mysqli_query($conn, $insert)) {
