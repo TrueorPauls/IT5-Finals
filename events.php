@@ -131,6 +131,7 @@ if ($logged_in) {
                 </div>
             </section>
 
+            <?php if ($logged_in): ?>
             <h2 id="bookheader">Planning an Event? Inquire now!</h3>
             <div id="book">
             <p id="clientname">Name: <input type="text" name="clientname" id="clientinput" placeholder="Name" ></p>
@@ -148,6 +149,7 @@ if ($logged_in) {
             <p id = "details">Details: <textarea name="details" placeholder="Describe your event's details" id="detailsinput"></textarea></p>
             <button type="submit" name="submitreq" id="submitreq">Submit Request</button>
             </div>
+            <?php endif;?>
         </div>
 
     </section>
