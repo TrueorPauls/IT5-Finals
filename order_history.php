@@ -43,6 +43,7 @@ $statuses = ['all', 'Pending', 'Preparing', 'Shipped', 'Completed', 'Cancelled']
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders – Kabesera Cafe</title>
     <link rel="stylesheet" href="order_history style.css">
+    <?php include("theme.php"); ?>
 </head>
 <body>
 

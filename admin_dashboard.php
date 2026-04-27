@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kabesera Cafe Admin</title>
     <link rel="stylesheet" href="admin dashboard style.css">
+    <?php include("theme.php"); ?>
 
 </head>
 

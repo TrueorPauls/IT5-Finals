@@ -13,6 +13,7 @@ $result = mysqli_query($conn, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kabesera Cafe Admin - Insights</title>
     <link rel="stylesheet" href="reportrepo.css">
+    <?php include("theme.php"); ?>
 </head>
 <body>
     <section class="container">

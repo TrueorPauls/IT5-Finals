@@ -82,6 +82,7 @@ $total_qty = array_sum(array_column($cart_items, "quantity"));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cart </title>
     <link rel="stylesheet" href="cart style.css">
+    <?php include("theme.php"); ?>
 </head>
 <body>
 

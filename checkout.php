@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout – Kabesera Cafe</title>
     <link rel="stylesheet" href="checkout style.css">
+    <?php include("theme.php"); ?>
 </head>
 <body>
 

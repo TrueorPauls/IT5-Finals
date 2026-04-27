@@ -37,7 +37,7 @@ if ($logged_in) {
     }
 }
 
-// FIX: Load sandbox settings from DB
+// Load sandbox settings
 $sandbox = array();
 $sb_res = mysqli_query($conn, "SELECT setting_key, setting_value FROM sandbox_settings");
 if ($sb_res) {
@@ -46,15 +46,7 @@ if ($sb_res) {
     }
 }
 
-// FIX: Read theme
-$theme = (isset($sandbox['theme']) && $sandbox['theme'] === 'dark') ? 'dark' : 'light';
-$body_bg    = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
-$body_color = ($theme === 'dark') ? '#f0ebe3' : '#000000';
-$items_bg   = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
-$item_color = ($theme === 'dark') ? '#f0ebe3' : '#333333';
-$price_color= ($theme === 'dark') ? '#4ade80' : '#14532d';
-
-// FIX: Read names and prices from sandbox, fall back to hardcoded defaults
+// Menu items from sandbox (names + prices)
 $espresso_items = array(
     array('id'=>1, 'name'=> isset($sandbox['c1_name']) ? $sandbox['c1_name'] : 'Espresso',   'img'=>'espresso.jpg',   'price'=> isset($sandbox['c1_price']) ? $sandbox['c1_price'] : 130),
     array('id'=>2, 'name'=> isset($sandbox['c2_name']) ? $sandbox['c2_name'] : 'Americano',  'img'=>'americano.jpg',  'price'=> isset($sandbox['c2_price']) ? $sandbox['c2_price'] : 130),
@@ -78,15 +70,7 @@ $nc_items = array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Page</title>
     <link rel="stylesheet" href="coffee style.css">
-    <!-- FIX: Apply sandbox theme to customer page -->
-    <style>
-        body { background-color: <?php echo $body_bg; ?>; color: <?php echo $body_color; ?>; }
-        .menu-items { background-color: <?php echo $items_bg; ?>; }
-        .price { color: <?php echo $price_color; ?>; }
-        .section-title { color: <?php echo $price_color; ?>; border-bottom-color: <?php echo $price_color; ?>; }
-        .item-name { color: <?php echo $item_color; ?>; }
-        .item-detail { color: <?php echo ($theme === 'dark') ? '#9a8880' : '#666'; ?>; }
-    </style>
+    <?php include("theme.php"); ?>
 </head>
 <body>
 
@@ -100,13 +84,13 @@ $nc_items = array(
         <a id="kabhome" href="index.php">Kabesera Cafe</a>
     </div>
     <ul class="nav-links">
-        <li id="foodbtn"><a href="food.php">Food</a></li>
-        <li id="coffeebtn"><a href="coffee.php" style="color:#22c55e">Coffee</a></li>
-        <li id="eventsbtn"><a href="events.php">Events</a></li>
+        <li><a href="food.php">Food</a></li>
+        <li><a href="coffee.php" style="color:#22c55e;">Coffee</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="index.php#contacts">Contact</a></li>
         <?php if ($logged_in): ?>
         <li><a href="cart.php">Cart<?php if ($cart_count > 0): ?><span class="cart-badge"><?= $cart_count ?></span><?php endif; ?></a></li>
         <li><a href="order_history.php">My Orders</a></li>
-        <li><a href="reviews.php">Reviews</a></li>
         <li><a href="logout.php" class="btn">Logout</a></li>
         <?php else: ?>
         <li><a href="login.php" class="btn">Login</a></li>

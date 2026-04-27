@@ -37,7 +37,7 @@ if ($logged_in) {
     }
 }
 
-// FIX: Load sandbox settings from DB
+// Load sandbox settings
 $sandbox = array();
 $sb_res = mysqli_query($conn, "SELECT setting_key, setting_value FROM sandbox_settings");
 if ($sb_res) {
@@ -46,17 +46,7 @@ if ($sb_res) {
     }
 }
 
-// FIX: Read theme and apply colors
-$theme = (isset($sandbox['theme']) && $sandbox['theme'] === 'dark') ? 'dark' : 'light';
-$body_bg     = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
-$body_color  = ($theme === 'dark') ? '#f0ebe3' : '#000000';
-$items_bg    = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
-$card_bg     = ($theme === 'dark') ? '#2a1f1c' : '#f2f4f1';
-$price_color = ($theme === 'dark') ? '#4ade80' : '#14532d';
-$title_color = ($theme === 'dark') ? '#4ade80' : '#14532d';
-$text_muted  = ($theme === 'dark') ? '#9a8880' : '#666666';
-
-// FIX: Read names and prices from sandbox, fall back to defaults
+// Food item names and prices from sandbox
 $f10_name  = isset($sandbox['f10_name'])  ? $sandbox['f10_name']  : 'The Sharing Spread';
 $f10_price = isset($sandbox['f10_price']) ? $sandbox['f10_price'] : '450';
 $f11_name  = isset($sandbox['f11_name'])  ? $sandbox['f11_name']  : 'House Blends';
@@ -79,22 +69,7 @@ $f16_price = isset($sandbox['f16_price']) ? $sandbox['f16_price'] : 'Custom';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Page</title>
     <link rel="stylesheet" href="food style.css">
-    <!-- FIX: Apply sandbox theme to customer food page -->
-    <style>
-        body { background-color: <?php echo $body_bg; ?>; color: <?php echo $body_color; ?>; }
-        .menu-items { background-color: <?php echo $items_bg; ?>; }
-        .food-feature { background-color: <?php echo $card_bg; ?>; }
-        .feature-info h4 { color: <?php echo $title_color; ?>; }
-        .price { color: <?php echo $price_color; ?>; }
-        .item-desc { color: <?php echo $price_color; ?>; }
-        #foodprice { color: <?php echo $price_color; ?>; }
-        #foodtitle { color: <?php echo $body_color; ?>; }
-        .group-title, .sticky-header {
-            background-color: <?php echo $items_bg; ?>;
-            color: <?php echo $body_color; ?>;
-        }
-        #desc { color: <?php echo $text_muted; ?>; }
-    </style>
+    <?php include("theme.php"); ?>
 </head>
 <body>
 
@@ -108,13 +83,13 @@ $f16_price = isset($sandbox['f16_price']) ? $sandbox['f16_price'] : 'Custom';
         <a id="kabhome" href="index.php">Kabesera Cafe</a>
     </div>
     <ul class="nav-links">
-        <li id="foodbtn"><a href="food.php" style="color:#22c55e">Food</a></li>
-        <li id="coffeebtn"><a href="coffee.php">Coffee</a></li>
-        <li id="eventsbtn"><a href="events.php">Events</a></li>
+        <li><a href="food.php" style="color:#22c55e;">Food</a></li>
+        <li><a href="coffee.php">Coffee</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="index.php#contacts">Contact</a></li>
         <?php if ($logged_in): ?>
         <li><a href="cart.php">Cart<?php if ($cart_count > 0): ?><span class="cart-badge"><?= $cart_count ?></span><?php endif; ?></a></li>
         <li><a href="order_history.php">My Orders</a></li>
-        <li><a href="reviews.php"">Reviews</a></li>
         <li><a href="logout.php" class="btn">Logout</a></li>
         <?php else: ?>
         <li><a href="login.php" class="btn">Login</a></li>
@@ -234,7 +209,7 @@ $f16_price = isset($sandbox['f16_price']) ? $sandbox['f16_price'] : 'Custom';
                     <div class="item-desc">
                         <h5 id="foodtitle"><?= htmlspecialchars($f16_name) ?></h5>
                         <span id="foodprice"><?= htmlspecialchars($f16_price) ?></span>
-                        <span style="font-size:0.8rem;color:<?php echo $text_muted; ?>;">Contact us to order</span>
+                        <span style="font-size:0.8rem;color:#888;">Contact us to order</span>
                     </div>
                 </div>
             </div>

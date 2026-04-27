@@ -124,15 +124,6 @@ $s = load_settings($conn);
 
 $theme = (isset($s['theme']) && $s['theme'] === 'dark') ? 'dark' : 'light';
 
-// FIX: define body/sidebar colors based on saved theme
-$body_bg      = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
-$body_color   = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
-$card_bg      = ($theme === 'dark') ? '#2a1f1c' : '#ffffff';
-$card_color   = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
-$input_bg     = ($theme === 'dark') ? '#3a2e2a' : '#fafafa';
-$input_border = ($theme === 'dark') ? '#5a4a44' : '#cccccc';
-$input_color  = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
-$sidebar_bg   = ($theme === 'dark') ? '#0d3320' : '#14532d';
 
 $coffee = array(
     'c1' => array('name' => isset($s['c1_name']) ? $s['c1_name'] : 'Espresso',            'price' => isset($s['c1_price']) ? $s['c1_price'] : '130'),
@@ -163,46 +154,7 @@ $food = array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandbox Settings - Kabesera Cafe</title>
     <link rel="stylesheet" href="sandbox style.css">
-    <!-- FIX: Apply theme colors inline so they always reflect the saved DB value -->
-    <style>
-        body {
-            background-color: <?php echo $body_bg; ?>;
-            color: <?php echo $body_color; ?>;
-        }
-        .menu-sidebar {
-            background-color: <?php echo $sidebar_bg; ?>;
-        }
-        .settings-card {
-            background-color: <?php echo $card_bg; ?>;
-            color: <?php echo $card_color; ?>;
-        }
-        .settings-card h3 {
-            color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
-            border-bottom-color: <?php echo ($theme === 'dark') ? '#3a4a3a' : 'rgba(20,83,45,0.15)'; ?>;
-        }
-        .section-title {
-            color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
-            border-bottom-color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
-        }
-        .form-row label {
-            color: <?php echo $card_color; ?>;
-        }
-        .form-row {
-            border-bottom-color: <?php echo ($theme === 'dark') ? '#3a2e2a' : '#f0f0f0'; ?>;
-        }
-        .form-row input[type="text"],
-        .form-row input[type="number"] {
-            background-color: <?php echo $input_bg; ?>;
-            border-color: <?php echo $input_border; ?>;
-            color: <?php echo $input_color; ?>;
-        }
-        .menu-items {
-            background-color: <?php echo $body_bg; ?>;
-        }
-        footer {
-            background-color: <?php echo ($theme === 'dark') ? '#0a0806' : '#3c2f2c'; ?>;
-        }
-    </style>
+    <?php include("theme.php"); ?>
 </head>
 <body>
 

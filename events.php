@@ -24,6 +24,7 @@ if ($logged_in) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events Page</title>
     <link rel="stylesheet" href="events.css">
+    <?php include("theme.php"); ?>
 </head>
 <body>
      <body>
@@ -35,7 +36,7 @@ if ($logged_in) {
         <ul class="nav-links">
            <li id="foodbtn"><a href="food.php">Food</a></li>
             <li id="coffeebtn"><a href="coffee.php">Coffee</a></li>
-            <li id="eventsbtn"><a href="events.php" style="color:#22c55e;">Events</a></li>
+            <li id="eventsbtn"><a href="events.php">Events</a></li>
             <li id="contactbtn"><a href="events.php#contacts">Contact</a></li>
             <?php if ($logged_in): ?> 
 
