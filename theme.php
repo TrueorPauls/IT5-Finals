@@ -272,46 +272,40 @@ section, article, main, .menu-page, .coffee-page {
 }
 
 /* ---- Report page ---- */
-
-  .logoimg {
-    filter: brightness(0.85) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-    background: #2a1f1c !important;
-    border-radius: 8px;
-  }
-  #kablogo {
-    background-color: #1a1210 !important;
-    color: #f0ebe3 !important;
-  }
-  #intro {
-    color: #9a8880 !important;
-  }
-  .loginbox {
+.loginbox {
     background-color: #2a1f1c !important;
     color: #f0ebe3 !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.9);
-  }
-  #n, #em, #issuecateg, #desc {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.9) !important;
+}
+#kablogo {
+    background-color: #1a1210 !important;
+    color: #f0ebe3 !important;
+}
+#intro {
+    color: #9a8880 !important;
+}
+#n, #em, #issuecateg, #desc {
     color: #f0ebe3 !important;
     background-color: #3a2e2a !important;
-  }
-  input, textarea {
+}
+input, textarea {
     background: #3a2e2a !important;
     border-color: #5a4a44 !important;
     color: #f0ebe3 !important;
-  }
-  #report {
+}
+#report {
     background: #166534 !important;
     color: #f0ebe3 !important;
-  }
-  #report:hover {
+}
+#report:hover {
     background: #22c55e !important;
-  }
-  #return {
+}
+#return {
     color: #9a8880 !important;
-  }
-  #return:hover {
+}
+#return:hover {
     color: #22c55e !important;
-  }
+}
 
 
 /* ---- Admin pages: orders.php, reportrepository.php ---- */
