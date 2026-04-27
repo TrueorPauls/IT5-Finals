@@ -24,7 +24,7 @@ if (strlen($review) < 5) {
 }
 
 // ── Call Flask ML API ─────────────────────────────────────────────────────────
-$api_url = 'http://localhost:5000/predict';
+$api_url = 'https://api-tyqn.onrender.com/predict';
 $payload = json_encode(['review' => $review]);
 
 $ch = curl_init($api_url);
