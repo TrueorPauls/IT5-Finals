@@ -41,7 +41,7 @@ if ($logged_in) {
             <li><a href="events.php">Events</a></li>
             <li><a href="#contacts">Contact</a></li>
             <li><a href="#aboutus">About Us</a></li>
-            <li><a href="report.html">Report</a></li>
+            <li><a href="report.php">Report</a></li>
             <?php if ($logged_in): ?>
                 <li>
                     <a href="cart.php">Cart

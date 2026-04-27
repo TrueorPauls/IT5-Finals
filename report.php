@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Page</title>
+    <link rel = "stylesheet" href = "report style.css">
+    <?php include("theme.php"); ?>
+</head>
+<body>
+    <img src="kabesera logo.webp" class = "logoimg">
+    <a href="index.php"><h1 id="kablogo">Kabesera Cafe</h1></a>
+    <form method="post" action="reports.php" class="loginbox">
+    <div class="login">
+    <h1>Help & Support</h1>
+    <p id="intro">Encountered a problem? Report bugs or suggest improvements here.</p>
+    <p id = "n">Name (Optional): <input type = "text" name = "n" placeholder="Your name"></input></p>
+    <p id = "em">Email (Optional): <input type = "text" name = "em" placeholder="JuanDelaCruz@email.com"></input></p>
+    <p id = "issuecateg">Subject: <textarea name = "issuecateg" placeholder="Issue to address"></textarea></p>
+    <p id = "desc">Description:<textarea name="desc" placeholder="Brief description of the issue"></textarea></p>
+    <button id = "report" type="submit" name="report">Submit Report</button>
+    <br>
+    <a id = "return" href="index.php">Return</a>
+    
+    </form>
+</body>
+</html>
