@@ -1,7 +1,4 @@
 <?php
-// theme.php — include this in every page's <head> AFTER the stylesheet link
-// It reads the saved theme from sandbox_settings and injects dark mode CSS if needed.
-// No JavaScript. Pure PHP + inline CSS.
 
 if (!isset($conn)) {
     include("config.php");
@@ -17,9 +14,9 @@ if ($_theme_res && mysqli_num_rows($_theme_res) > 0) {
 if ($_theme === 'dark'):
 ?>
 <style>
-/* ============================================================
-   DARK MODE OVERRIDE — applied to ALL pages by theme.php
-   ============================================================ */
+/* =================
+   DARK MODE
+   ================= */
 
 /* ---- Shared: body, nav already dark ---- */
 body {
@@ -274,6 +271,27 @@ section, article, main, .menu-page, .coffee-page {
     color: #4ade80 !important;
 }
 
+/* ---- Report page ---- */
+#kablogo {
+    background-color: #1a1210 !important;
+    color: #f0ebe3 !important;
+}
+body {
+    background-color: #1a1210 !important;
+    color: #f0ebe3 !important;
+}
+#intro {
+    color: #9a8880 !important;
+}
+.loginbox {
+    background-color: #2a1f1c !important;
+}
+#n, #em, #issuecateg, #desc {
+    color: #f0ebe3 !important;
+    background-color: #3a2e2a !important;
+    border-color: #5a4a44 !important;
+}
+
 /* ---- Admin pages: orders.php, reportrepository.php ---- */
 .ordertaker, .table-container {
     background-color: #1a1210 !important;
@@ -324,6 +342,28 @@ section, article, main, .menu-page, .coffee-page {
 
 #story p {
     color: #c8b8b0 !important;
+}
+
+/* Fix images for dark mode on index and events pages */
+#taglineimg,
+#storyimg,
+#storyimg2,
+#storyimg3,
+.food-feature img,
+.logo img,
+.logoimg {
+    filter: brightness(0.85) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    border: 2px solid rgba(255,255,255,0.08);
+    background: #2a1f1c !important;
+}
+
+/* Make sure images with white backgrounds are not too bright in dark mode */
+img[src$=".webp"],
+img[src$=".jpg"],
+img[src$=".jpeg"],
+img[src$=".png"] {
+    background: #2a1f1c !important;
+    border-radius: 8px;
 }
 
 /* ---- Login & Signup pages ---- */
@@ -392,7 +432,7 @@ section, article, main, .menu-page, .coffee-page {
 
 /* ---- highlight cards on index ---- */
 .card {
-    background: rgba(42, 31, 28, 0.85) !important;
+    background-color: rgba(42, 31, 28, 0.85) !important;
     color: #f0ebe3 !important;
 }
 
