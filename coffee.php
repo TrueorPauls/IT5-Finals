@@ -60,6 +60,7 @@ if ($logged_in) {
         <li id="foodbtn"><a href="food.php">Food</a></li>
         <li id="coffeebtn"><a href="coffee.php" style="color:#22c55e">Coffee</a></li>
         <li id="eventsbtn"><a href="events.php">Events</a></li>
+        <li><a href="reviews.php">Reviews</a></li>
         <?php if ($logged_in): ?>
         <li><a href="cart.php">Cart<?php if ($cart_count > 0): ?><span class="cart-badge"><?= $cart_count ?></span><?php endif; ?></a></li>
         <li><a href="order_history.php">My Orders</a></li>
