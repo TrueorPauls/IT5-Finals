@@ -54,6 +54,7 @@ while ($row = mysqli_fetch_assoc($orders_res)) {
     <ul>
         <li><a href="report repository.html">Insights</a></li>
         <li><a href="booking.html">Event Reservations</a></li>
+        <li><a href="sandbox.php">Sandbox Settings</a></li>
         <li><a href="logout.php" class="btn">Log Out</a></li>
     </ul>
 </nav>
