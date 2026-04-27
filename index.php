@@ -38,6 +38,7 @@ if ($logged_in) {
             <li><a href="food.php">Food</a></li>
             <li><a href="coffee.php">Coffee</a></li>
             <li><a href="events.php">Events</a></li>
+            <li><a href="reviews.php">Reviews</a></li>
             <li><a href="#contacts">Contact</a></li>
             <li><a href="#aboutus">About Us</a></li>
             <?php if ($logged_in): ?>
