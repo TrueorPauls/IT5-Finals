@@ -272,25 +272,47 @@ section, article, main, .menu-page, .coffee-page {
 }
 
 /* ---- Report page ---- */
-#kablogo {
+
+  .logoimg {
+    filter: brightness(0.85) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    background: #2a1f1c !important;
+    border-radius: 8px;
+  }
+  #kablogo {
     background-color: #1a1210 !important;
     color: #f0ebe3 !important;
-}
-body {
-    background-color: #1a1210 !important;
-    color: #f0ebe3 !important;
-}
-#intro {
+  }
+  #intro {
     color: #9a8880 !important;
-}
-.loginbox {
+  }
+  .loginbox {
     background-color: #2a1f1c !important;
-}
-#n, #em, #issuecateg, #desc {
+    color: #f0ebe3 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.9);
+  }
+  #n, #em, #issuecateg, #desc {
     color: #f0ebe3 !important;
     background-color: #3a2e2a !important;
+  }
+  input, textarea {
+    background: #3a2e2a !important;
     border-color: #5a4a44 !important;
-}
+    color: #f0ebe3 !important;
+  }
+  #report {
+    background: #166534 !important;
+    color: #f0ebe3 !important;
+  }
+  #report:hover {
+    background: #22c55e !important;
+  }
+  #return {
+    color: #9a8880 !important;
+  }
+  #return:hover {
+    color: #22c55e !important;
+  }
+
 
 /* ---- Admin pages: orders.php, reportrepository.php ---- */
 .ordertaker, .table-container {
@@ -361,8 +383,7 @@ body {
 img[src$=".webp"],
 img[src$=".jpg"],
 img[src$=".jpeg"],
-img[src$=".png"] {
-    background: #2a1f1c !important;
+img[src$=".png"] {    background: #2a1f1c !important;
     border-radius: 8px;
 }
 
@@ -448,6 +469,12 @@ img[src$=".png"] {
 footer {
     background-color: #0a0806 !important;
     color: #d8e2dc !important;
+}
+/* ---- Event booking form (events page) ---- */
+#book {
+    background: #23201c !important;
+    color: #f0ebe3 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.9) !important;
 }
 </style>
 <?php endif; ?>
