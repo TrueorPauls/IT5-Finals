@@ -356,3 +356,10 @@ iframe{
     border-radius: 30px;
     margin-left: -85.5vh;
 }
+#nolog{
+    position: relative;
+    margin-top: 100px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}

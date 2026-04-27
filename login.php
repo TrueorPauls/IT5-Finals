@@ -7,7 +7,7 @@ include("config.php");
 $secretKey = "6LdAP8AsAAAAAL-1IIVrVehmyTUQLhx4E_K3tAes";
 $error     = "";
 $email     = "";
- 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Submit'])) {
  
     $email         = mysqli_real_escape_string($conn, trim($_POST['un']));
@@ -93,11 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Submit'])) {
         <p id="admin"><input type="radio" name="role" value="admin"
             <?= (($_POST['role'] ?? '') === 'admin') ? 'checked' : '' ?>> Admin</p>
  
-        
- 
-        <button id="submit" type="submit" name="Submit">Log-In</button>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <div class="g-recaptcha" data-sitekey="6LdAP8AsAAAAAMY2L3-Qu5K1tVMnXUAg_Jwi5q_o"></div>
+        <div class="g-recaptcha" data-sitekey="6LdAP8AsAAAAAMY2L3-Qu5K1tVMnXUAg_Jwi5q_o"></div> 
+        <button id="submit" type="submit" name="Submit">Log-In</button>
         <br>
         <p id="or">or</p>
         <a id="sign" href="signup.php">Sign Up</a><br>

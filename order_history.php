@@ -55,9 +55,9 @@ $statuses = ['all', 'Pending', 'Preparing', 'Shipped', 'Completed', 'Cancelled']
         <li><a href="food.php">Food</a></li>
         <li><a href="coffee.php">Coffee</a></li>
         <li><a href="events.php">Events</a></li>
-        <li><a href="reviews.php">Reviews</a></li>
         <li><a href="cart.php">Cart</a></li>
         <li><a href="order_history.php" style="color:#22c55e;">My Orders</a></li>
+        <li><a href="reviews.php">Reviews</a></li>
         <li><a href="logout.php" class="btn">Log Out</a></li>
     </ul>
 </nav>

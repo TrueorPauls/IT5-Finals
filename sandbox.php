@@ -7,7 +7,7 @@ if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// ---- Helper: load all settings from DB into an array ----
+// ---- load all settings from DB ----
 function load_settings($conn) {
     $settings = array();
     $result = mysqli_query($conn, "SELECT setting_key, setting_value FROM sandbox_settings");
@@ -17,30 +17,31 @@ function load_settings($conn) {
     return $settings;
 }
 
-// ---- Helper: upsert a single setting ----
+// ---- upsert one setting ----
 function save_setting($conn, $key, $value) {
     $key   = mysqli_real_escape_string($conn, $key);
     $value = mysqli_real_escape_string($conn, $value);
-    mysqli_query($conn, "INSERT INTO sandbox_settings (setting_key, setting_value)
-                         VALUES ('$key', '$value')
-                         ON DUPLICATE KEY UPDATE setting_value = '$value'");
+    mysqli_query($conn,
+        "INSERT INTO sandbox_settings (setting_key, setting_value)
+         VALUES ('$key', '$value')
+         ON DUPLICATE KEY UPDATE setting_value = '$value'"
+    );
 }
 
-$msg        = "";
-$msg_type   = "";
+$msg      = "";
+$msg_type = "";
 
-// ---- HANDLE FORM SUBMISSIONS ----
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // -- Save Theme --
+    // Save Theme
     if (isset($_POST['save_theme'])) {
-        $theme = $_POST['theme'] === 'dark' ? 'dark' : 'light';
+        $theme = (isset($_POST['theme']) && $_POST['theme'] === 'dark') ? 'dark' : 'light';
         save_setting($conn, 'theme', $theme);
         $msg      = "Theme saved successfully!";
         $msg_type = "success";
     }
 
-    // -- Save Coffee Menu --
+    // Save Coffee Menu
     if (isset($_POST['save_coffee'])) {
         $coffee_ids = array('c1','c2','c3','c4','c5','c6','c7','c8','c9');
         foreach ($coffee_ids as $id) {
@@ -55,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $msg_type = "success";
     }
 
-    // -- Save Food Menu --
+    // Save Food Menu
     if (isset($_POST['save_food'])) {
         $food_ids = array('f10','f11','f12','f13','f14','f15','f16');
         foreach ($food_ids as $id) {
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $msg_type = "success";
     }
 
-    // -- Reset Coffee to Default --
+    // Reset Coffee
     if (isset($_POST['reset_coffee'])) {
         $defaults = array(
             'c1' => array('Espresso', '130'),
@@ -87,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             save_setting($conn, $id . '_name',  $val[0]);
             save_setting($conn, $id . '_price', $val[1]);
         }
-        $msg      = "Coffee menu has been reset to default.";
+        $msg      = "Coffee menu reset to default.";
         $msg_type = "success";
     }
 
-    // -- Reset Food to Default --
+    // Reset Food
     if (isset($_POST['reset_food'])) {
         $defaults = array(
             'f10' => array('The Sharing Spread', '450'),
@@ -106,23 +107,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             save_setting($conn, $id . '_name',  $val[0]);
             save_setting($conn, $id . '_price', $val[1]);
         }
-        $msg      = "Food menu has been reset to default.";
+        $msg      = "Food menu reset to default.";
         $msg_type = "success";
     }
 
-    // -- Reset Theme to Default --
+    // Reset Theme
     if (isset($_POST['reset_theme'])) {
         save_setting($conn, 'theme', 'light');
-        $msg      = "Theme has been reset to Light Mode.";
+        $msg      = "Theme reset to Light Mode.";
         $msg_type = "success";
     }
 }
 
-// ---- Load current settings to show in the form ----
+// ---- Load current settings ----
 $s = load_settings($conn);
 
-// Defaults if DB is empty
-$theme = isset($s['theme']) ? $s['theme'] : 'light';
+$theme = (isset($s['theme']) && $s['theme'] === 'dark') ? 'dark' : 'light';
+
+// FIX: define body/sidebar colors based on saved theme
+$body_bg      = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
+$body_color   = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
+$card_bg      = ($theme === 'dark') ? '#2a1f1c' : '#ffffff';
+$card_color   = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
+$input_bg     = ($theme === 'dark') ? '#3a2e2a' : '#fafafa';
+$input_border = ($theme === 'dark') ? '#5a4a44' : '#cccccc';
+$input_color  = ($theme === 'dark') ? '#f0ebe3' : '#3c2f2c';
+$sidebar_bg   = ($theme === 'dark') ? '#0d3320' : '#14532d';
 
 $coffee = array(
     'c1' => array('name' => isset($s['c1_name']) ? $s['c1_name'] : 'Espresso',            'price' => isset($s['c1_price']) ? $s['c1_price'] : '130'),
@@ -153,25 +163,65 @@ $food = array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandbox Settings - Kabesera Cafe</title>
     <link rel="stylesheet" href="sandbox style.css">
+    <!-- FIX: Apply theme colors inline so they always reflect the saved DB value -->
+    <style>
+        body {
+            background-color: <?php echo $body_bg; ?>;
+            color: <?php echo $body_color; ?>;
+        }
+        .menu-sidebar {
+            background-color: <?php echo $sidebar_bg; ?>;
+        }
+        .settings-card {
+            background-color: <?php echo $card_bg; ?>;
+            color: <?php echo $card_color; ?>;
+        }
+        .settings-card h3 {
+            color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
+            border-bottom-color: <?php echo ($theme === 'dark') ? '#3a4a3a' : 'rgba(20,83,45,0.15)'; ?>;
+        }
+        .section-title {
+            color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
+            border-bottom-color: <?php echo ($theme === 'dark') ? '#4ade80' : '#14532d'; ?>;
+        }
+        .form-row label {
+            color: <?php echo $card_color; ?>;
+        }
+        .form-row {
+            border-bottom-color: <?php echo ($theme === 'dark') ? '#3a2e2a' : '#f0f0f0'; ?>;
+        }
+        .form-row input[type="text"],
+        .form-row input[type="number"] {
+            background-color: <?php echo $input_bg; ?>;
+            border-color: <?php echo $input_border; ?>;
+            color: <?php echo $input_color; ?>;
+        }
+        .menu-items {
+            background-color: <?php echo $body_bg; ?>;
+        }
+        footer {
+            background-color: <?php echo ($theme === 'dark') ? '#0a0806' : '#3c2f2c'; ?>;
+        }
+    </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">
-        <a href="index.php"><img src="qt=q_95.webp" alt="Kabesera Cafe"></a>
+        <a href="admin_dashboard.php"><img src="qt=q_95.webp" alt="Kabesera Cafe"></a>
         <a id="kabhome" href="admin_dashboard.php">Kabesera Cafe</a>
     </div>
     <ul>
-        <li><a href="admin_dashboard.php">Dashboard</a></li>
-        <li><a href="report repository.html">Insights</a></li>
-        <li><a href="booking.html">Event Reservations</a></li>
-        <li><a href="logout.php" class="btn">Log Out</a></li>
+        <li><a href="orders.php">Order Management</a></li>
+        <li><a href="reportrepository.php">Insights</a></li>
+        <li><a href="book_event.php">Event Reservations</a></li>
+        <li><a href="sandbox.php">Sandbox Settings</a></li>
+        <li><a href="logout.php" class="btn">Logout</a></li>
     </ul>
 </nav>
 
 <div class="sandbox-page">
 
-    <!-- SIDEBAR -->
     <div class="menu-sidebar">
         <div class="sidebar-content">
             <h2>Settings</h2>
@@ -183,7 +233,6 @@ $food = array(
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="menu-items">
 
         <?php if ($msg !== ""): ?>
@@ -195,9 +244,11 @@ $food = array(
         <!-- COLOR THEME -->
         <section id="theme" class="menu-section">
             <h2 class="section-title">Color Theme</h2>
-
             <div class="settings-card">
-                <h3>Choose a theme for the system</h3>
+                <h3>Choose a theme for the customer pages</h3>
+                <p style="font-size:0.85rem; margin-bottom:16px; color:<?php echo ($theme==='dark')?'#9a8880':'#666'; ?>">
+                    This changes the background and text color on the Coffee and Food pages that customers see.
+                </p>
                 <form method="POST" action="sandbox.php#theme">
                     <div class="theme-options">
                         <label class="theme-card <?php echo $theme === 'light' ? 'selected' : ''; ?>">
@@ -233,7 +284,6 @@ $food = array(
         <!-- COFFEE MENU -->
         <section id="coffee" class="menu-section">
             <h2 class="section-title">Coffee Menu</h2>
-
             <form method="POST" action="sandbox.php#coffee">
 
                 <div class="settings-card">
@@ -310,7 +360,6 @@ $food = array(
         <!-- FOOD MENU -->
         <section id="food" class="menu-section">
             <h2 class="section-title">Food Menu</h2>
-
             <form method="POST" action="sandbox.php#food">
 
                 <div class="settings-card">

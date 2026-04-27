@@ -38,9 +38,9 @@ if ($logged_in) {
             <li><a href="food.php">Food</a></li>
             <li><a href="coffee.php">Coffee</a></li>
             <li><a href="events.php">Events</a></li>
-            <li><a href="reviews.php">Reviews</a></li>
             <li><a href="#contacts">Contact</a></li>
             <li><a href="#aboutus">About Us</a></li>
+            <li><a href="report.html">Report</a></li>
             <?php if ($logged_in): ?>
                 <li>
                     <a href="cart.php">Cart
@@ -50,9 +50,10 @@ if ($logged_in) {
                     </a>
                 </li>
                 <li><a href="order_history.php">My Orders</a></li>
-                <li><a href="logout.php" class="btn">Log Out</a></li>
+                <li><a href="reviews.php">Reviews</a></li>
+                <li><a href="logout.php" class="btn">Logout</a></li>
             <?php else: ?>
-                <li><a href="login.php" class="btn">Log In</a></li>
+                <li><a href="login.php" class="btn">Login</a></li>
             <?php endif; ?>
         </ul>
     </nav>

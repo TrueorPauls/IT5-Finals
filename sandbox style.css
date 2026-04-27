@@ -3,10 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
     background-color: #d8e2dc;
+    padding-top: 80px; 
+    margin: 0;
 }
 
 /* ---- NAV (copied from admin dashboard style.css) ---- */

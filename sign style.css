@@ -31,11 +31,19 @@ body{
   color: rgba(0, 0, 0, 0.505);
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
-#un{
-    font-size: 23px;
-    margin-top: 10px;
-    margin-right: 340px;
-    margin-bottom: -15px;
+.un{
+  font-size: 23px;
+  margin-top: 10px;
+  margin-right: 340px;
+  margin-bottom: -15px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    
+}
+.fn{
+  font-size: 23px;
+  margin-top: 10px;
+  margin-right: 290px;
+  margin-bottom: -15px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
     
 }
@@ -79,7 +87,7 @@ input[type="password"] {
   width: 200px;
   height: 35px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-  margin-top: 40px;
+  margin-top: 5px;
 }
 #submit:hover{
   background: #22c55e;
@@ -120,7 +128,6 @@ input[type="password"] {
 #or{
   font-size: 18px;
   color: rgba(0, 0, 0, 0.505);
-  margin-top: -5px;
   margin-bottom: 5px;
 }
 .g-recaptcha{
@@ -154,4 +161,14 @@ input[type="password"] {
 .success-msg a {
   color: #155724;
   font-weight: bold;
+}
+.success-msg, .error-msg {
+    display: block;
+    visibility: visible;
+    position: relative;
+    z-index: 999;
+    background: white; /* Temporary to make it stand out */
+    color: red;
+    border: 2px solid red;
+    padding: 10px;
 }

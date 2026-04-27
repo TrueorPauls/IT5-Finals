@@ -42,9 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Submit'])) {
             $insert = "INSERT INTO users (email, password, full_name, role)
                        VALUES ('$email', '$hashed', '$fullname', 'customer')";
             if (mysqli_query($conn, $insert)) {
-                $success = true;
-                $email    = "";
-                $fullname = "";
+                header("Location: login.php?created=true");
+                exit();
             } else {
                 $error = "Registration failed. Please try again.";
             }
@@ -57,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up – Kabesera Cafe</title>
+    <title>Sign Up | Kabesera Cafe</title>
     <link rel="stylesheet" href="sign style.css">
     
 </head>
@@ -80,10 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Submit'])) {
         <div class="error-msg"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <p class="un">Full Name:
-            <input type="text" name="fullname" placeholder="Your full name"
-                   value="<?= htmlspecialchars($fullname) ?>">
-        </p>
+        <p class="fn">Full Name: <input type="text" name="fullname" placeholder="Your full name" value="<?= htmlspecialchars($fullname) ?>"></p>
         <p class="un">Email:
             <input type="text" name="unsign" placeholder="Email"
                    value="<?= htmlspecialchars($email) ?>">

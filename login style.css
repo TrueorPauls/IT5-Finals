@@ -83,11 +83,13 @@ input[type = "password"]{
     font-family: Georgia, "Times New Roman", serif;
 }
 #submit{
+  position: relative;
   background: #166534;
   font-size: 23px;
   border-radius: 12px;
   width: 200px;
   height: 35px;
+  margin-top: 5px;
 }
 #submit:hover{
   background: #22c55e;
@@ -115,26 +117,29 @@ input[type = "password"]{
   margin-bottom: 20px;
 }
 #sign{
+  position: absolute;
   text-decoration: underline;
   color: black;
   font-size: 23px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-top: 4vh;
+  margin-left: -4vh;
 }
 #sign:hover {
     color: #22c55e;
 }
 #or{
+  position: absolute;
+  margin-top: 8px;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.505);
-  margin-top: -1vh;
-  margin-bottom: 5px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-left: 31vh;
 }
 .g-recaptcha{
-  position: relative;
   align-self: center;
   margin-left: 16.5vh;
-  margin-top: 1vh;
+  margin-top: -1vh;
 }
 .error-msg {
   color: #c0392b;

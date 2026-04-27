@@ -35,10 +35,10 @@ if ($logged_in) {
         <ul class="nav-links">
            <li id="foodbtn"><a href="food.php">Food</a></li>
             <li id="coffeebtn"><a href="coffee.php">Coffee</a></li>
-            
-            <?php if ($logged_in): ?> 
-            <li id="eventsbtn"><a href="events.html">Events</a></li>
+            <li id="eventsbtn"><a href="events.php" style="color:#22c55e;">Events</a></li>
             <li id="contactbtn"><a href="events.php#contacts">Contact</a></li>
+            <?php if ($logged_in): ?> 
+
                 <li>
                     <a href="cart.php">Cart
                         <?php if ($cart_count > 0): ?>
@@ -47,9 +47,10 @@ if ($logged_in) {
                     </a>
                 </li>
                 <li><a href="order_history.php">My Orders</a></li>
-                <li><a href="logout.php" class="btn">Log Out</a></li>
+                <li><a href="reviews.php" >Reviews</a></li>
+                <li><a href="logout.php" class="btn">Logout</a></li>
             <?php else: ?>
-                <li><a href="login.php" class="btn">Log In</a></li>
+                <li><a href="login.php" class="btn">Login</a></li>
             <?php endif; ?>
         </ul>
     </nav>
@@ -131,7 +132,7 @@ if ($logged_in) {
                 </div>
             </section>
 
-            <?php if ($logged_in): ?>
+            <form action="book_event.php" method="post">
             <h2 id="bookheader">Planning an Event? Inquire now!</h3>
             <div id="book">
             <p id="clientname">Name: <input type="text" name="clientname" id="clientinput" placeholder="Name" ></p>
@@ -147,8 +148,12 @@ if ($logged_in) {
             <p id = "guests">Guest Count: <input type="number" name="guests" placeholder="Number of guests" id="guestinput"></p>
             <p id="date">Date: <input type="date" name="date" id="dateinput"></p>
             <p id = "details">Details: <textarea name="details" placeholder="Describe your event's details" id="detailsinput"></textarea></p>
+            <?php if ($logged_in): ?>
             <button type="submit" name="submitreq" id="submitreq">Submit Request</button>
+            <?php elseif(!$logged_in):?>
+            <h2 id="nolog">Please Login to submit inquiry.</h2>
             </div>
+            </form>
             <?php endif;?>
         </div>
 

@@ -4,7 +4,7 @@ include("config.php");
 
 $logged_in = isset($_SESSION['user']);
 
-// Add to cart from this page
+// Add to cart
 if ($logged_in && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['menu_item_id'])) {
     $email = $_SESSION['user'];
     $uid_res = mysqli_query($conn, "SELECT id FROM users WHERE email='" . mysqli_real_escape_string($conn, $email) . "'");
@@ -23,7 +23,7 @@ if ($logged_in && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['menu_it
     $added = true;
 }
 
-// Get cart count
+// Cart count
 $cart_count = 0;
 if ($logged_in) {
     $email = $_SESSION['user'];
@@ -36,6 +36,40 @@ if ($logged_in) {
         $cart_count = $cc_row['total'] ?? 0;
     }
 }
+
+// FIX: Load sandbox settings from DB
+$sandbox = array();
+$sb_res = mysqli_query($conn, "SELECT setting_key, setting_value FROM sandbox_settings");
+if ($sb_res) {
+    while ($sb_row = mysqli_fetch_assoc($sb_res)) {
+        $sandbox[$sb_row['setting_key']] = $sb_row['setting_value'];
+    }
+}
+
+// FIX: Read theme
+$theme = (isset($sandbox['theme']) && $sandbox['theme'] === 'dark') ? 'dark' : 'light';
+$body_bg    = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
+$body_color = ($theme === 'dark') ? '#f0ebe3' : '#000000';
+$items_bg   = ($theme === 'dark') ? '#1a1210' : '#d8e2dc';
+$item_color = ($theme === 'dark') ? '#f0ebe3' : '#333333';
+$price_color= ($theme === 'dark') ? '#4ade80' : '#14532d';
+
+// FIX: Read names and prices from sandbox, fall back to hardcoded defaults
+$espresso_items = array(
+    array('id'=>1, 'name'=> isset($sandbox['c1_name']) ? $sandbox['c1_name'] : 'Espresso',   'img'=>'espresso.jpg',   'price'=> isset($sandbox['c1_price']) ? $sandbox['c1_price'] : 130),
+    array('id'=>2, 'name'=> isset($sandbox['c2_name']) ? $sandbox['c2_name'] : 'Americano',  'img'=>'americano.jpg',  'price'=> isset($sandbox['c2_price']) ? $sandbox['c2_price'] : 130),
+    array('id'=>3, 'name'=> isset($sandbox['c3_name']) ? $sandbox['c3_name'] : 'Cappuccino', 'img'=>'cappuccino.jpg', 'price'=> isset($sandbox['c3_price']) ? $sandbox['c3_price'] : 155),
+);
+$latte_items = array(
+    array('id'=>4, 'name'=> isset($sandbox['c4_name']) ? $sandbox['c4_name'] : 'Pandan Latte',         'img'=>'pandan.jpg',  'price'=> isset($sandbox['c4_price']) ? $sandbox['c4_price'] : 185, 'desc'=>'Espresso, pandan, coconut milk'),
+    array('id'=>5, 'name'=> isset($sandbox['c5_name']) ? $sandbox['c5_name'] : 'Spanish Latte',        'img'=>'spanish.jpg', 'price'=> isset($sandbox['c5_price']) ? $sandbox['c5_price'] : 175, 'desc'=>'Sweetened condensed milk & espresso'),
+    array('id'=>6, 'name'=> isset($sandbox['c6_name']) ? $sandbox['c6_name'] : 'Salted Caramel Latte', 'img'=>'caramel.jpg', 'price'=> isset($sandbox['c6_price']) ? $sandbox['c6_price'] : 180, 'desc'=>'House-made caramel with sea salt'),
+);
+$nc_items = array(
+    array('id'=>7, 'name'=> isset($sandbox['c7_name']) ? $sandbox['c7_name'] : 'Premium Hot Cocoa', 'img'=>'cocoa.jpg',     'price'=> isset($sandbox['c7_price']) ? $sandbox['c7_price'] : 160),
+    array('id'=>8, 'name'=> isset($sandbox['c8_name']) ? $sandbox['c8_name'] : 'Matcha Latte',      'img'=>'matcha.jpg',    'price'=> isset($sandbox['c8_price']) ? $sandbox['c8_price'] : 185),
+    array('id'=>9, 'name'=> isset($sandbox['c9_name']) ? $sandbox['c9_name'] : 'Chocolate Milk',    'img'=>'chocolate.jpg', 'price'=> isset($sandbox['c9_price']) ? $sandbox['c9_price'] : 150),
+);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +78,20 @@ if ($logged_in) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Page</title>
     <link rel="stylesheet" href="coffee style.css">
+    <!-- FIX: Apply sandbox theme to customer page -->
+    <style>
+        body { background-color: <?php echo $body_bg; ?>; color: <?php echo $body_color; ?>; }
+        .menu-items { background-color: <?php echo $items_bg; ?>; }
+        .price { color: <?php echo $price_color; ?>; }
+        .section-title { color: <?php echo $price_color; ?>; border-bottom-color: <?php echo $price_color; ?>; }
+        .item-name { color: <?php echo $item_color; ?>; }
+        .item-detail { color: <?php echo ($theme === 'dark') ? '#9a8880' : '#666'; ?>; }
+    </style>
 </head>
 <body>
 
 <?php if (isset($added)): ?>
-<div class="flash-added">✓ Added to cart!</div>
+<div class="flash-added">&#10003; Added to cart!</div>
 <?php endif; ?>
 
 <nav class="main-nav">
@@ -60,13 +103,13 @@ if ($logged_in) {
         <li id="foodbtn"><a href="food.php">Food</a></li>
         <li id="coffeebtn"><a href="coffee.php" style="color:#22c55e">Coffee</a></li>
         <li id="eventsbtn"><a href="events.php">Events</a></li>
-        <li><a href="reviews.php">Reviews</a></li>
         <?php if ($logged_in): ?>
         <li><a href="cart.php">Cart<?php if ($cart_count > 0): ?><span class="cart-badge"><?= $cart_count ?></span><?php endif; ?></a></li>
         <li><a href="order_history.php">My Orders</a></li>
-        <li><a href="logout.php" class="btn">Log Out</a></li>
+        <li><a href="reviews.php">Reviews</a></li>
+        <li><a href="logout.php" class="btn">Logout</a></li>
         <?php else: ?>
-        <li><a href="login.php" class="btn">Log In</a></li>
+        <li><a href="login.php" class="btn">Login</a></li>
         <?php endif; ?>
     </ul>
 </nav>
@@ -89,20 +132,14 @@ if ($logged_in) {
         <section id="espresso" class="menu-section">
             <h3 class="section-title">Espresso Bar</h3>
             <div class="menu-list">
-                <?php
-                $espresso_items = [
-                    ['id'=>1, 'name'=>'Espresso',   'img'=>'espresso.jpg',   'price'=>130],
-                    ['id'=>2, 'name'=>'Americano',  'img'=>'americano.jpg',  'price'=>130],
-                    ['id'=>3, 'name'=>'Cappuccino', 'img'=>'cappuccino.jpg', 'price'=>155],
-                ];
-                foreach ($espresso_items as $m): ?>
+                <?php foreach ($espresso_items as $m): ?>
                 <div class="menu-row">
-                    <img src="<?= $m['img'] ?>" alt="<?= $m['name'] ?>">
+                    <img src="<?= $m['img'] ?>" alt="<?= htmlspecialchars($m['name']) ?>">
                     <div class="menu-content">
-                        <span class="item-name"><?= $m['name'] ?></span>
+                        <span class="item-name"><?= htmlspecialchars($m['name']) ?></span>
                     </div>
                     <div class="add-to-cart-btn">
-                        <span class="price">₱<?= $m['price'] ?></span>
+                        <span class="price">&#8369;<?= htmlspecialchars($m['price']) ?></span>
                         <?php if ($logged_in): ?>
                         <form method="POST">
                             <input type="hidden" name="menu_item_id" value="<?= $m['id'] ?>">
@@ -121,21 +158,15 @@ if ($logged_in) {
         <section id="signature" class="menu-section">
             <h3 class="section-title">Signature Lattes</h3>
             <div class="menu-list">
-                <?php
-                $latte_items = [
-                    ['id'=>4, 'name'=>'Pandan Latte',        'img'=>'pandan.jpg',  'price'=>185, 'desc'=>'Espresso, pandan, coconut milk'],
-                    ['id'=>5, 'name'=>'Spanish Latte',       'img'=>'spanish.jpg', 'price'=>175, 'desc'=>'Sweetened condensed milk & espresso'],
-                    ['id'=>6, 'name'=>'Salted Caramel Latte','img'=>'caramel.jpg', 'price'=>180, 'desc'=>'House-made caramel with sea salt'],
-                ];
-                foreach ($latte_items as $m): ?>
+                <?php foreach ($latte_items as $m): ?>
                 <div class="menu-row">
-                    <img src="<?= $m['img'] ?>" alt="<?= $m['name'] ?>">
+                    <img src="<?= $m['img'] ?>" alt="<?= htmlspecialchars($m['name']) ?>">
                     <div class="item-info">
-                        <span class="item-name"><?= $m['name'] ?></span>
+                        <span class="item-name"><?= htmlspecialchars($m['name']) ?></span>
                         <span class="item-detail"><?= $m['desc'] ?></span>
                     </div>
                     <div class="add-to-cart-btn">
-                        <span class="price">₱<?= $m['price'] ?></span>
+                        <span class="price">&#8369;<?= htmlspecialchars($m['price']) ?></span>
                         <?php if ($logged_in): ?>
                         <form method="POST">
                             <input type="hidden" name="menu_item_id" value="<?= $m['id'] ?>">
@@ -154,18 +185,12 @@ if ($logged_in) {
         <section id="non-coffee" class="menu-section">
             <h3 class="section-title">Non-Coffee</h3>
             <div class="menu-list">
-                <?php
-                $nc_items = [
-                    ['id'=>7, 'name'=>'Premium Hot Cocoa', 'img'=>'cocoa.jpg',      'price'=>160],
-                    ['id'=>8, 'name'=>'Matcha Latte',      'img'=>'matcha.jpg',     'price'=>185],
-                    ['id'=>9, 'name'=>'Chocolate Milk',    'img'=>'chocolate.jpg',  'price'=>150],
-                ];
-                foreach ($nc_items as $m): ?>
+                <?php foreach ($nc_items as $m): ?>
                 <div class="menu-row">
-                    <img src="<?= $m['img'] ?>" alt="<?= $m['name'] ?>">
-                    <span class="item-name"><?= $m['name'] ?></span>
+                    <img src="<?= $m['img'] ?>" alt="<?= htmlspecialchars($m['name']) ?>">
+                    <span class="item-name"><?= htmlspecialchars($m['name']) ?></span>
                     <div class="add-to-cart-btn">
-                        <span class="price">₱<?= $m['price'] ?></span>
+                        <span class="price">&#8369;<?= htmlspecialchars($m['price']) ?></span>
                         <?php if ($logged_in): ?>
                         <form method="POST">
                             <input type="hidden" name="menu_item_id" value="<?= $m['id'] ?>">
