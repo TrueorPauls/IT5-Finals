@@ -1,10 +1,14 @@
 <?php
-// submit_review.php
-// Receives review from the form, calls Flask ML API, saves result to DB, returns JSON
 session_start();
 include("config.php");
 
 header('Content-Type: application/json');
+
+// Must be logged in
+if (!isset($_SESSION['user'])) {
+    echo json_encode(['error' => 'You must be logged in to leave a review.']);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Invalid request method']);
@@ -17,14 +21,13 @@ if (empty($review)) {
     echo json_encode(['error' => 'Please write a review first.']);
     exit;
 }
-
 if (strlen($review) < 5) {
     echo json_encode(['error' => 'Review is too short.']);
     exit;
 }
 
-// ── Call Flask ML API ─────────────────────────────────────────────────────────
-$api_url = 'https://api-tyqn.onrender.com/predict';
+// ── Call Flask ML API ─────────────────────────────────────────────
+$api_url = 'http://127.0.0.1:10000/predict';
 
 $data = json_encode(['review' => $review]);
 
@@ -50,34 +53,35 @@ if ($response === FALSE) {
 $result = json_decode($response, true);
 
 error_log("API Response: " . json_encode($result));
-// prediction: 1 = positive, 0 = negative
+
 $prediction = strtolower($result['prediction']);
 $sentiment = ($prediction == '1' || $prediction == 'positive') ? 'positive' : 'negative';
 $confidence  = round((float)($result["confidence"] ?? 0), 2);
 
-// ── Save to DB ────────────────────────────────────────────────────────────────
-// Get user info if logged in
-$user_id   = $_SESSION['user_id'] ?? null;
-$user_name = 'Anonymous';
+error_log("Confidence extracted: " . $confidence);
 
-if ($user_id) {
-    $u = mysqli_fetch_assoc(mysqli_query($conn, "SELECT full_name, email FROM users WHERE id=$user_id"));
-    $user_name = $u['full_name'] ?: $u['email'];
-}
+// ── Get reviewer name from DB using email session ─────────────────
+$email   = mysqli_real_escape_string($conn, $_SESSION['user']);
+$u       = mysqli_fetch_assoc(mysqli_query($conn, "SELECT full_name, email FROM users WHERE email='$email'"));
+$user_name = ($u && !empty($u['full_name'])) ? $u['full_name'] : $email;
+$user_id   = $_SESSION['user_id'] ?? 'NULL';
 
-$review_escaped = mysqli_real_escape_string($conn, $review);
-$sentiment_esc  = mysqli_real_escape_string($conn, $sentiment);
-$name_esc       = mysqli_real_escape_string($conn, $user_name);
-$uid_val        = $user_id ? $user_id : 'NULL';
+// ── Save to DB ────────────────────────────────────────────────────
+$review_esc = mysqli_real_escape_string($conn, $review);
+$sent_esc   = mysqli_real_escape_string($conn, $sentiment);
+$name_esc   = mysqli_real_escape_string($conn, $user_name);
 
-mysqli_query($conn, "INSERT INTO reviews (user_id, reviewer_name, review_text, sentiment, confidence, created_at)
-                     VALUES ($uid_val, '$name_esc', '$review_escaped', '$sentiment_esc', $confidence, NOW())");
+$query = "INSERT INTO reviews (user_id, reviewer_name, review_text, sentiment, confidence, created_at)
+                     VALUES ($user_id, '$name_esc', '$review_esc', '$sent_esc', $confidence, NOW())";
+error_log("Insert query: " . $query);
+$insert_result = mysqli_query($conn, $query);
+error_log("Insert result: " . ($insert_result ? "SUCCESS" : "FAILED - " . mysqli_error($conn)));
 
 echo json_encode([
-    'success'    => true,
-    'review'     => $review,
-    'sentiment'  => $sentiment,
+    'success'   => true,
+    'review'    => $review,
+    'sentiment' => $sentiment,
     'confidence' => round($confidence, 2) . '%',
-    'reviewer'   => $user_name,
+    'reviewer'  => $user_name,
 ]);
 ?>
