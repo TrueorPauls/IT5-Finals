@@ -47,11 +47,11 @@ def predict():
         prediction = model.predict(review_vec)[0]
 
         probabilities = model.predict_proba(review_vec)[0]
-        confidence    = round(float(np.max(probabilities)) * 100, 2)
+        confidence    = round(float(max(probabilities)) * 100, 2)
 
         return jsonify({
             "review": review,
-            "prediction": str(prediction)
+            "prediction": str(prediction),
             "confidence": confidence
         })
 
