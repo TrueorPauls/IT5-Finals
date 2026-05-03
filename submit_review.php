@@ -25,34 +25,35 @@ if (strlen($review) < 5) {
 
 // ── Call Flask ML API ─────────────────────────────────────────────────────────
 $api_url = 'https://api-tyqn.onrender.com/predict';
-$payload = json_encode(['review' => $review]);
 
-$ch = curl_init($api_url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+$data = json_encode(['review' => $review]);
 
-$response = curl_exec($ch);
-$curl_error = curl_error($ch);
-curl_close($ch);
+$options = [
+    'http' => [
+        'header'  => "Content-Type: application/json\r\n",
+        'method'  => 'POST',
+        'content' => $data,
+        'timeout' => 30
+    ]
+];
 
-if ($curl_error) {
-    echo json_encode(['error' => 'Could not reach the review analysis service. Please try again later.']);
+$context = stream_context_create($options);
+$response = @file_get_contents($api_url, false, $context);
+
+if ($response === FALSE) {
+    echo json_encode([
+        'error' => 'API request failed'
+    ]);
     exit;
 }
 
 $result = json_decode($response, true);
 
-if (!$result || isset($result['error'])) {
-    echo json_encode(['error' => 'Analysis failed. Please try again.']);
-    exit;
-}
-
+error_log("API Response: " . json_encode($result));
 // prediction: 1 = positive, 0 = negative
-$prediction_raw  = $result['prediction'];
-$sentiment       = ($prediction_raw == '1') ? 'positive' : 'negative';
+$prediction = strtolower($result['prediction']);
+$sentiment = ($prediction == '1' || $prediction == 'positive') ? 'positive' : 'negative';
+$confidence  = round((float)($result["confidence"] ?? 0), 2);
 
 // ── Save to DB ────────────────────────────────────────────────────────────────
 // Get user info if logged in
@@ -69,13 +70,14 @@ $sentiment_esc  = mysqli_real_escape_string($conn, $sentiment);
 $name_esc       = mysqli_real_escape_string($conn, $user_name);
 $uid_val        = $user_id ? $user_id : 'NULL';
 
-mysqli_query($conn, "INSERT INTO reviews (user_id, reviewer_name, review_text, sentiment, created_at)
-                     VALUES ($uid_val, '$name_esc', '$review_escaped', '$sentiment_esc', NOW())");
+mysqli_query($conn, "INSERT INTO reviews (user_id, reviewer_name, review_text, sentiment, confidence, created_at)
+                     VALUES ($uid_val, '$name_esc', '$review_escaped', '$sentiment_esc', $confidence, NOW())");
 
 echo json_encode([
     'success'    => true,
     'review'     => $review,
     'sentiment'  => $sentiment,
+    'confidence' => round($confidence, 2) . '%',
     'reviewer'   => $user_name,
 ]);
 ?>
